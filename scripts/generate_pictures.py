@@ -1,255 +1,519 @@
-import json
-import csv
-import shapesAndLocations
+from collections import namedtuple
+from dataclasses import dataclass
+from typing import NamedTuple, Any
+import random
 import math
-import cairo
+import copy
+import os
+import json
+import numpy
+import csv
+from csv import DictReader
 import sys
-from scipy.stats import truncnorm
 import numpy as np
+# from shapes import Triangle
+# from shapes import Cross
+# import shapes
+import cairo
+import pandas as pd
 
-#some overall parameters
-window_size = 800 # mid point is (256,256)
-landmark_size = 80
-trajector_size = 30
+@dataclass
+class Object:
+    x: int = 0
+    y: int = 0
+    radius: int = 0
+    context: Any = 'None'
+    color: str = 'None'
+    shape: str = 'None'
+    number: int = 1
+    position: str = None
 
-x_coordinate_landmark_1 = window_size / 4
-y_coordinate_landmark_1 = window_size / 4 
-x_coordinate_landmark_2 = window_size / 4 * 3
-y_coordinate_landmark_2 = window_size / 4 * 3
+    def get_parameters(self):
+        parameters = (self.x, self.y, self.radius)
+        return parameters
 
-radius_mean = 200
-radius_std = 25
-radius_upper = 250
-radius_lower = 175
+    def test_unused_argument(self):
+        return self.radius
 
-#create dict with relevant data
+    def set_color(self):
+        if self.color == 'orange':
+            self.context.set_source_rgb(1, 0.51, 0)
+        elif self.color == 'blue' or self.color == 'blau':
+            self.context.set_source_rgb(0.35, 0.7, 0.9)
+        elif self.color == 'grey' or self.color == 'grau':
+            self.context.set_source_rgb(0.55, 0.51, 0.53)
+        elif self.color == 'brown' or self.color == 'braun':
+            self.context.set_source_rgb(0.53, 0.27, 0.07)
+        elif self.color == 'black' or self.color == 'schwarz':
+            self.context.set_source_rgb(0, 0, 0)
+        elif self.color == 'green' or self.color == 'grün':
+            self.context.set_source_rgb(0.67, 1, 0.18)
+        elif self.color == 'purple' or self.color == 'lila':
+            self.context.set_source_rgb(0.5, 0, 0.5)
+        elif self.color == 'yellow' or self.color == 'gelb':
+            self.context.set_source_rgb(1, 1, 0)
+        elif self.color == 'turquoise' or self.color == 'türkis':
+            self.context.set_source_rgb(0.25, 0.88, 0.82)
+        elif self.color == 'red' or self.color == 'rot':
+            self.context.set_source_rgb(1, 0, 0)
+        elif self.color == 'pink':
+            self.context.set_source_rgb(1, 0.07, 0.57)
+
+    def draw_heart(self):
+        x, y, radius = self.get_parameters()
+        self.set_color()
+        xoffset = 0.8 * radius
+        yoffset1 = 0.6 * xoffset
+        yoffset2 = 0.7 * xoffset
+        y = y - yoffset1
+        self.context.move_to(x, y)
+        self.context.curve_to(x, y - yoffset1, x - xoffset, y - yoffset1, x - xoffset, y)
+        self.context.curve_to(x - xoffset, y + yoffset1, x, y + yoffset2, x, y + 2 * yoffset1)
+        self.context.curve_to(x, y + yoffset2, x + xoffset, y + yoffset1, x + xoffset, y)
+        self.context.curve_to(x + xoffset, y - yoffset1, x, y - yoffset1, x, y)
+        self.context.fill_preserve()
+        self.context.set_source_rgba(0, 0, 0, 1)
+        self.context.set_line_width(1)
+        self.context.stroke()
+        self.context.save()
+
+    def draw_triangle(self):
+        x, y, radius = self.get_parameters()
+        self.set_color()
+        radius = radius / math.sqrt(3) * 3
+        self.context.move_to(x, y - (math.sqrt(3) / 3 * radius))
+        self.context.line_to(x - radius / 2, y + (3 / math.sqrt(3) / 6 * radius))
+        self.context.line_to(x + radius / 2, y + (3 / math.sqrt(3) / 6 * radius))
+        self.context.line_to(x, y - (math.sqrt(3) / 3 * radius))
+        self.context.fill_preserve()
+        self.context.set_source_rgba(0, 0, 0, 1)
+        self.context.set_line_width(1)
+        self.context.stroke()
+        self.context.save()
+
+    def draw_rectangle(self):
+        x, y, radius = self.get_parameters()
+        self.set_color()
+        radius = 2 * radius / math.sqrt(2)
+        points = [
+            (x - (radius / 2), y - (radius / 2)),
+            (x - (radius / 2), y + (radius / 2)),
+            (x + (radius / 2), y + (radius / 2)),
+            (x + (radius / 2), y - (radius / 2)),
+            (x - (radius / 2), y - (radius / 2))
+        ]
+        for i in range(len(points)):
+            self.context.line_to(points[i][0], points[i][1])
+        self.context.fill_preserve()
+        self.context.set_source_rgba(0, 0, 0, 1)
+        self.context.set_line_width(1)
+        self.context.stroke()
+        self.context.save()
+
+    def draw_cross(self):
+        x, y, radius = self.get_parameters()
+        self.set_color()
+        b = radius / 3
+        a = 2 * b
+        self.context.move_to(x - (b / 2), y - (b / 2))
+        points = [
+            (x - (b / 2), y - (b / 2)),
+            (x - (b / 2) - a, y - (b / 2)),
+            (x - (b / 2) - a, y - (b / 2) + b),
+            (x - (b / 2), y - (b / 2) + b),
+
+            (x - (b / 2), y + (b / 2) + a),
+            (x + (b / 2), y + (b / 2) + a),
+            (x + (b / 2), y + (b / 2)),
+
+            (x + (b / 2) + a, y + (b / 2)),
+            (x + (b / 2) + a, y - (b / 2)),
+            (x + (b / 2), y - (b / 2)),
+
+            (x + (b / 2), y - (b / 2) - a),
+            (x - (b / 2), y - (b / 2) - a),
+            (x - (b / 2), y - (b / 2))
+        ]
+        for i in range(len(points)):
+            self.context.line_to(points[i][0], points[i][1])
+        self.context.fill_preserve()
+        self.context.set_source_rgba(0, 0, 0, 1)
+        self.context.set_line_width(1)
+        self.context.stroke()
+        self.context.save()
+
+    def draw_circle(self):
+        x, y, radius = self.get_parameters()
+        radius = radius / math.sqrt(2)
+        self.set_color()
+        self.context.arc(x, y, radius, 0, 2 * math.pi)
+        self.context.fill_preserve()
+        self.context.set_source_rgba(0, 0, 0, 1)
+        self.context.set_line_width(1)
+        self.context.stroke()
+
+    def draw_star(self):
+        x, y, degree = self.get_parameters()
+        self.set_color()
+        costum_size_adjustment = 0.8 #control the size
+        degree = degree * costum_size_adjustment
+        bottom = degree
+        diag = bottom / math.cos(math.pi / 5)
+        points = (
+            (x, y),
+            (x + diag, y),
+            (x + diag + bottom / 2, y - diag * math.cos(math.pi / 10)),
+            (x + diag + bottom, y),
+            (x + (2 * diag) + bottom, y),
+            (x + (2 * diag) + bottom - diag * math.cos(math.pi / 5), y + diag * math.sin(math.pi / 5)),
+            (x + (2 * diag + bottom) * math.cos(math.pi / 5), y + (2 * diag + bottom) * math.sin(math.pi / 5)),
+            (x + diag + bottom / 2, y + (bottom + diag) * math.sin(math.pi / 5)),
+            (x + (((2 * diag) + bottom) - (2 * diag + bottom) * math.cos(math.pi / 5)),
+             y + (2 * diag + bottom) * math.sin(math.pi / 5)),
+            (x + diag * math.cos(math.pi / 10), y + diag * math.sin(math.pi / 5)),
+            (x, y),
+        )
+        for i in range(11):
+            self.context.line_to(points[i][0], points[i][1])
+        self.context.fill_preserve()
+        self.context.set_source_rgba(0, 0, 0, 1)
+        self.context.set_line_width(1)
+        self.context.stroke()
+        self.context.save()
+
+
+def draw_object(c, objs):
+    for _ in objs:
+        _.context = c
+        if _.shape == "triangle":
+            _.draw_triangle()
+        elif _.shape == "heart":
+            _.draw_heart()
+        elif _.shape == "square":
+            _.draw_rectangle()
+        elif _.shape == "cross":
+            _.draw_cross()
+        elif _.shape == "circle":
+            _.draw_circle()
+        elif _.shape == "star":
+            _.draw_star()
+
+
+def no_overlap(objs, x, y, radius):
+    """Checks whether a new obj will have any overlap with an existing
+    array of objs.
+
+    Args:
+        objs: an iterable of `Object`s
+        x: x-value of center of new obj
+        y: y-value of center of new obj
+        r: radius of new obj
+
+    Returns:
+        True if the new dot has no overlap with any of the dots in `dots',
+        False otherwise
+    """
+    radius = radius * 2
+    #condition = (x < (obj.x + 2 * radius) and x > (obj.x - 2 * radius)) and (y < (obj.y + 2 * radius) and y > (obj.y - 2 * radius))
+    #return all([(x < (obj.x + radius) and x > (obj.x - radius)) and (y < (obj.y - radius) and y > (obj.y + radius)) for obj in objs])
+    return all([(x - obj.x) ** 2 + (y - obj.y) ** 2 > (radius + obj.radius) ** 2
+                for obj in objs])
+
+
+def clip(val, min_val, max_val):
+    """Clips `val` to be in the range [min_val, max_val]. """
+    return max(min(val, max_val), min_val)
+
+
+def get_random_radii(min_radius, max_radius, std=1):
+    """Gets random radii of shapes for a shapes_dict.  Radii are sampled from
+    a Gaussian distribution with mean (max_r - min_r) / 2 and standard
+    deviation std, then clipped.
+
+    Args:
+        color_dict: dictionary of colors, with integer values
+        min_radius: smallest radius
+        max_radius: biggest radius
+        std: standard deviation
+
+    Returns:
+        a dictionary, with the same keys as shapes_dict, and values a list of
+        shapes_dict[shape] floating point numbers
+    """
+    mean = (max_radius - min_radius) / 2
+    radius = clip(random.gauss(mean, std), min_radius, max_radius)
+    return radius
+
+
+def get_area_controlled_radii(shapes_dict, min_radius, max_radius, std=0.5,
+                              total_area=None):
+    """Gets area controlled radii: the sum of the areas of each shapes will be equal (either to total_area or to the total area taken by the
+    largest number in shapes_dict dots of mean radius).
+
+    Args:
+        shapes_dict: as above
+        min_radius: as above
+        max_radius: as above
+        std: as above
+        total_area: a float, the total area to distribute to each color.  If
+            not specified, this will be set to N*(max_radius - min_radius)/2^2,
+            where N is the largest value in shapes_dict
+
+    Returns:
+        a dictionary, as above
+    """
+    mean = (max_radius - min_radius) / 2
+    if not total_area:
+        total_area = math.pi * (mean ** 2) * max(shapes_dict.values())
+    radii = {shape: [] for shape in shapes_dict}
+    for shape in shapes_dict:
+        num_remaining = shapes_dict[shape]
+        area_remaining = total_area
+        while num_remaining > 1:
+            mean = math.sqrt(area_remaining / (num_remaining * math.pi))
+            # get radius that is not too big to use up all remaining area!
+            found_r = False
+            while not found_r:
+                r = clip(random.gauss(mean, std), min_radius, max_radius)
+                if math.pi * r ** 2 < area_remaining:
+                    found_r = True
+            radii[shape].append(r)
+            area_remaining -= math.pi * r ** 2
+            num_remaining -= 1
+        radii[shape].append(math.sqrt(area_remaining / math.pi))
+    return radii
+
+
+def scattered_random(objs, area_control=False,
+                     total_area=None,
+                     num_pixels=(512, 512), padding=10,
+                     min_radius=30, max_radius=40, std=5):
+    """Generates ScatteredRandom images: the dots are scattered
+    randomly through the image. """
+    if area_control:
+        radii = get_area_controlled_radii(min_radius, max_radius,
+                                          std=std, total_area=total_area)
+    else:
+        radii = get_random_radii(min_radius, max_radius, std=std)
+    # print({color: sum([math.pi*r**2 for r in radii[color]]) for color in radii})
+    for _ in objs:
+        radius = get_random_radii(min_radius, max_radius, std)
+        x_min, y_min = padding + radius, padding + radius
+        x_max, y_max = num_pixels[0] - padding - radius, num_pixels[1] - padding - radius
+        new_obj_added = False
+        while not new_obj_added:
+            x = random.randint(x_min, x_max)
+            y = random.randint(y_min, y_max)
+            # avoid overlap with existing circles
+            if no_overlap(objs, x, y, radius):
+                _.x, _.y, _.radius = x, y, radius
+                new_obj_added = True
+    return objs
+
+
+def scattered_split(shapes_dict, area_control=False,
+                    num_pixels=(512, 512), padding=24,
+                    min_radius=1, max_radius=5, std=0.5,
+                    shape_order=None):
+    """Generates ScatteredSplit images: the dots are scattered randomly through
+    the image, but each color has its own region of the image, with different
+    colors laid out horizontally. """
+    width_per = num_pixels[0] / len(shapes_dict)
+    mean = (max_radius - min_radius) / 2
+    total_area = math.pi * (mean ** 2) * max(shapes_dict.values())
+    shape_objs = {shape: scattered_random(
+        {shape: shapes_dict[shape]}, area_control=area_control,
+        total_area=total_area,
+        num_pixels=(width_per, num_pixels[1]), padding=padding,
+        min_radius=min_radius, max_radius=max_radius, std=std)
+        for shape in shapes_dict}
+    objs = []
+    if not shape_order:
+        shapes = list(shapes_dict.keys())
+        random.shuffle(shapes)
+    else:
+        shapes = shape_order
+    for idx in range(len(shapes)):
+        objs.extend([obj._replace(x=obj.x + idx * width_per)
+                     for obj in shape_objs[shapes[idx]]])
+    return objs
+
+
+def shift_position(position, obj):
+    if position == 'left':
+        obj.x, obj.y = obj.x, obj.y
+    elif position == "right":
+        # central_width defines area in the middle with no objects, set to 100 pixels; defined here and below in main; has to be changed twice, if required
+        central_width = 100
+        obj.x = obj.x + 256 + central_width
+        obj.y = obj.y + 256 + central_width
+    return obj
+
+
+# read csv file as list of lists of strings
+with open('../items/items_w.Sentence.csv', 'r', encoding='utf-8') as f:
+    reader = csv.reader(f)
+    # skip header
+    next(reader, None)
+    stimuli_file = list(reader)
+
+
+# create dict with relevant data
 def create_dict(line):
     line_string = ";".join(str(x) for x in line)
     line_cells = line_string.split(";")
-    return {"item": line_cells[0],
-        "sentence": line_cells[1],
-        "landmark_color_1": line_cells[2],
-        "trajector_color_1": line_cells[3],
-        "landmark_color_2": line_cells[4],
-        "trajector_color_2": line_cells[5],
-        "reference_trajector_1": line_cells[6],
-        "second_trajector": line_cells[7],
-        "reference_trajector_2": line_cells[8],
-        'list': line_cells[9],
-        "verb": line_cells[10],
-        "landmark_form": line_cells[11],
-        "trajector_form": line_cells[12],
-        "second_landmark": line_cells[13],
-        "condition": line_cells[14],
-        "rotation_number": line_cells[15],
-        "prep": line_cells[16],
-        'trajector_degree_1' : sample_data(my_mean = 0, my_std = 45, myclip_a = -45, myclip_b = 45, size = 1),
-        'trajector_radius_1' : sample_data(my_mean = radius_mean, my_std = radius_std, myclip_a = radius_lower, myclip_b = radius_upper, size = 1),
-        'trajector_degree_2' : sample_data(my_mean = 0, my_std = 45, myclip_a = -45, myclip_b = 45, size = 1),
-        'trajector_radius_2' : sample_data(my_mean = radius_mean, my_std = radius_std, myclip_a = radius_lower, myclip_b = radius_upper, size = 1),
-        'question': '???'
-        }
+    return dict(list = line_cells[0], item=line_cells[1], F1_NPforms=line_cells[2], F2_matchness=line_cells[3],
+                Grouped = line_cells[4], Predicate=line_cells[5], linguisticContext = line_cells[6],
+                Color1=line_cells[7], Color2=line_cells[8], Shape1=line_cells[9], Shape2=line_cells[10], Number1=line_cells[11], Number2=line_cells[12],
+                left=dict(shape=line_cells[6], position='left', color_1=line_cells[5], numbers_1=line_cells[7], color_2=line_cells[5], numbers_2=line_cells[7]),
+                right=dict(shape=line_cells[9], position = 'right', color_1=line_cells[8], numbers_1=line_cells[10], color_2=line_cells[8], numbers_2=line_cells[10]))
 
 
+def adjust_size(max_size, size, coefficient):
+    size = max_size * size * coefficient
+    if size >= max_size:
+        size = max_size
+    return size
 
-#sample relevant data with truncnorm distribution
-def sample_data(my_mean,my_std,myclip_a,myclip_b,size):
-    a, b = (myclip_a - my_mean) / my_std, (myclip_b - my_mean) / my_std
-    r = float(truncnorm.rvs(a, b, loc = my_mean, scale = my_std, size = size))
-    return r
+def sum_dict(a, b):
+    temp = {}
+    for key in a.keys() | b.keys():
+        temp[key] = sum([d.get(key, 0) for d in (a, b)])
+    return temp
 
-
-#calculate x and y coordinate of trajector(s)
-def trajector_position(degree, radius, reference_object):
-    if reference_object == "1":
-        x_coordinate = x_coordinate_landmark_1 + radius* math.cos(math.pi/180*(degree-45)) 
-        y_coordinate = y_coordinate_landmark_1 - radius* math.sin(math.pi/180*(degree-45)) 
-    elif reference_object == "2":
-        x_coordinate = x_coordinate_landmark_2 + radius* math.cos(math.pi/180*(degree+135)) 
-        y_coordinate = y_coordinate_landmark_2 - radius* math.sin(math.pi/180*(degree+135))
-    return x_coordinate,y_coordinate
-
-def overlap_control(trajector_size, x_1, y_1, x_2, y_2):
-    # take trajector_size (radius of trajector) as a quadrat
-    # compute this quadrat of first trajector first
-    x_upper = x_1 + trajector_size
-    x_lower = x_1 - trajector_size
-    y_upper = y_1 + trajector_size
-    y_lower = y_1 - trajector_size
-    # change to 2 * trajector_size to completely avoid overlapping
-
-    if (x_2 < x_upper and x_2 > x_lower) and (y_2 < y_upper and y_2 > y_lower):
-        return False
-
-def determine_landmark_form(landmark_form):
-    if landmark_form == "Dreieck":
-        return shapesAndLocations.Triangle
-    else: 
-        return shapesAndLocations.Landmark
-
-def determine_trajector_form(trajector_form):
-    if trajector_form == "Kreuz":
-        return shapesAndLocations.Cross
-    elif trajector_form == "Stern":
-        return shapesAndLocations.Star
-    elif trajector_form == "Kreis":
-        return shapesAndLocations.Circle
-
-def rotate(point, angle):
-    """
-    Rotate a point counterclockwise by a given angle around a given origin.
-
-    The angle should be given in radians.
-    """
-    ox, oy = (400,400)
-    px, py = point
-
-    qx = ox + math.cos(angle) * (px - ox) - math.sin(angle) * (py - oy)
-    qy = oy + math.sin(angle) * (px - ox) + math.cos(angle) * (py - oy)
-    return qx, qy
-
-def extents(cx, cy, cr):
-        return (cx - cr, cy - cr, cx + cr, cy + cr)
-
-def generate_experiment_stimuli(source_file = "all_stimuli_with_sentences.csv", output_file = "all_stimuli_output_final.csv", practice = False):
-    #read csv file as df
-    with open(source_file, 'r', encoding='utf-8') as f:
-        reader = csv.reader(f)
-        #skip header
-        next(reader, None)
-        stimuli_file = list(reader)
-
-    #create list of dicts for each extracted line
-    trial_dicts_list = list(map(create_dict, stimuli_file))
-
-
-
-    for t in trial_dicts_list:
-        # Define the output file location
-        filename = "web/pictures/" + "pic-list-" + t["list"] + "-item-" + t["item"] + "-cond-" + t["condition"] + ".svg"
-
-        # Define the colors and forms of the objects
-        landmark_color_1 = t["landmark_color_1"]
-        trajector_color_1 = t["trajector_color_1"]
-        landmark_color_2 = t["landmark_color_2"]
-        trajector_color_2 = t["trajector_color_2"]
-        second_trajector = t["second_trajector"]
-        second_landmark = t["second_landmark"]
-        landmark_form = t["landmark_form"]
-        trajector_form = t["trajector_form"]
-        rotation_number = t["rotation_number"]
-
-
-        #print(rotation_number)
-        #print(type(rotation_number))
-        if rotation_number == "0":
-            rotation = 0
-        elif rotation_number == "1":
-            rotation = math.pi / 2
-        elif rotation_number == "2":
-            rotation = math.pi
-        elif rotation_number == "3":
-            rotation = math.pi / 2 * 3
-
-        # Determine x,y coordinates for two landmarks
-        x_coordinate_landmark_1_rotated, y_coordinate_landmark_1_rotated = rotate((x_coordinate_landmark_1, y_coordinate_landmark_1), rotation)
-        x_coordinate_landmark_2_rotated, y_coordinate_landmark_2_rotated = rotate((x_coordinate_landmark_2, y_coordinate_landmark_2), rotation)
-
-        trajector_degree_1 = sample_data(my_mean = 0, my_std = 45, myclip_a = -45, myclip_b = 45, size = 1)
-        trajector_radius_1 = sample_data(my_mean = radius_mean, my_std = radius_std, myclip_a = radius_lower, myclip_b = radius_upper, size = 1)
-        trajector_position_1 = trajector_position(trajector_degree_1,trajector_radius_1, t['reference_trajector_1'])
-        trajector_position_1_rotated = rotate((trajector_position_1[0], trajector_position_1[1]), rotation)
-
-        if trajector_form == "Stern":
-            extents_trajector_1 = extents(trajector_position_1_rotated[0],trajector_position_1_rotated[1],100)
-        else:
-            extents_trajector_1 = extents(trajector_position_1_rotated[0],trajector_position_1_rotated[1],60)
-        
-        overlap = True
-        while overlap:
-            trajector_degree_2 = sample_data(my_mean = 0, my_std = 45, myclip_a = -45, myclip_b = 45, size = 1)
-            trajector_radius_2 = sample_data(my_mean = radius_mean, my_std = radius_std, myclip_a = radius_lower, myclip_b = radius_upper, size = 1)
-            trajector_position_2 = trajector_position(trajector_degree_2,trajector_radius_2, t['reference_trajector_1'])
-            trajector_position_2_rotated = rotate((trajector_position_2[0], trajector_position_2[1]), rotation)
-            x1,y1,x2,y2 = extents_trajector_1
-            #print(extents_trajector_1)
-            if (x1 < trajector_position_2_rotated[0]) & (trajector_position_2_rotated[0] < x2) & (y1 < trajector_position_2_rotated[1]) & (y2 > trajector_position_2_rotated[1]):
-                overlap = True
-            else:
-                overlap = False
-
-        t["trajector_degree_1"] = trajector_degree_1
-        t["trajector_radius_1"] = trajector_radius_1
-        t["trajector_degree_2"] = trajector_degree_2
-        t["trajector_radius_2"] = trajector_radius_2
-
-        # Draw the background
-        s = cairo.SVGSurface(filename, window_size, window_size)
-        c = cairo.Context(s)
-        
-        c.set_source_rgb(0.9, 0.9, 0.9)
-        c.rectangle(0, 0, window_size, window_size)
-        c.fill()
-        
-        # TODO: Randomize positions of landmark
-        # Draw the first landmark
-        tmp = determine_landmark_form(landmark_form)(c, x_coordinate_landmark_1_rotated, y_coordinate_landmark_1_rotated, landmark_size, landmark_color_1)
-        tmp.draw()
-
-        # Draw the second landmark if necessary
-        if second_landmark == "Y":
-            tmp = determine_landmark_form(landmark_form)(c, x_coordinate_landmark_2_rotated, y_coordinate_landmark_2_rotated, landmark_size, landmark_color_2)
-            tmp.draw()
-
-
-        # Draw the first trajector
-        
-        tmp = determine_trajector_form(trajector_form)(c, trajector_position_1_rotated[0], trajector_position_1_rotated[1], trajector_size, trajector_color_1)
-        tmp.draw()
-
-
-        # Draw the second trajector if necessary
-        if second_trajector == "Y":
-            tmp = determine_trajector_form(trajector_form)(c, trajector_position_2_rotated[0], trajector_position_2_rotated[1], trajector_size, trajector_color_2)
-            tmp.draw()
-
-        s.finish()
-
-    keys = trial_dicts_list[0].keys()
-    with open(output_file, 'w', newline='')  as output_file:
-        dict_writer = csv.DictWriter(output_file, keys)
-        dict_writer.writeheader()
-        dict_writer.writerows(trial_dicts_list)
-    
-    trials = json.dumps(trial_dicts_list, ensure_ascii=False)
-    #trials = trials.encode('utf8')
-    if practice:
-        out = "const trainingtrials =" + trials
-        out = out.encode('utf8')
-        #save file as practice.js
-        f = open("web/js/practice.js","wb")
-        f.write(out)
-        f.close()
+def encode_objects(row, matchness = "random", groupby='Color', central_width=50):
+    matchness = row['F2_matchness']
+    groupby = row['Grouped']
+    color_dict = ["orange", "blue", "grey", "brown", "black", "green", "purple", "yellow", "turquoise", "red", "pink"]
+    shape_dict = ["triangle", "heart", "square", "cross", "circle", "star"]
+    random_number = random.randint(1, 3)
+    number_color1 = int(row['Number1'])
+    number_color2 = int(row['Number2'])
+    total_number = number_color1 + number_color2
+    if matchness == 'random':
+        objs = [Object() for _ in range(total_number)]
+        objs = scattered_random(objs, num_pixels=(1024, 512))
+        # Distribute colors and shapes
+        for i in range(number_color1):
+            objs[i].color = row['Color1']
+            objs[i].shape = row['Shape1']
+        for i in range(number_color1, total_number):
+            objs[i].color = row['Color2']
+            objs[i].shape = row['Shape2']
     else:
-        out = "const maintrials ="+trials
-        out = out.encode('utf8')
-        #save file as stimuli.js
-        f = open("web/js/stimuli.js","wb")
-        f.write(out)
-        f.close()
+        objs1 = [Object() for _ in range(number_color1)]
+        objs2 = [Object() for _ in range(number_color2)]
+        objs1 = scattered_random(objs1, num_pixels=(512, 512))
+        objs2 = scattered_random(objs2, num_pixels=(512, 512))
+        for obj in objs2:
+            obj.x = obj.x + 512 + central_width
+        random_number = [random.randint(1, 3) for _ in range(2)]
+        if matchness == "+match":
+            if groupby == "Color":
+                for i, obj in enumerate(objs1):
+                    obj.color = row['Color1']
+                    obj.shape = row['Shape1']
+                    if i in random_number:
+                        obj.shape = row['Shape2']
+                for i, obj in enumerate(objs2):
+                    obj.color = row['Color2']
+                    obj.shape = row['Shape2']
+                    if i in random_number:
+                        obj.shape = row['Shape1']
+            else:
+                for i, obj in enumerate(objs1):
+                    obj.color = row['Color1']
+                    obj.shape = row['Shape1']
+                    if i in random_number:
+                        obj.color = row['Color2']
+                for i in enumerate(objs2):
+                    obj.color = row['Color2']
+                    obj.shape = row['Shape2']
+                    if i in random_number:
+                        obj.color = row['Color1']
+        elif matchness == "-match":
+            if groupby == "Color":
+                for i, obj in enumerate(objs1):
+                    obj.color = row['Color1']
+                    obj.shape = row['Shape1']
+                    if i in random_number:
+                        obj.shape = row['Shape2']
+                for i, obj in enumerate(objs2):
+                    obj.color = row['Color2']
+                    obj.shape = row['Shape2']
+                    if i in random_number:
+                        obj.shape = row['Shape1']
+            else:
+                for i, obj in enumerate(objs1):
+                    obj.color = row['Color1']
+                    obj.shape = row['Shape1']
+                    if i in random_number:
+                        obj.color = row['Color2']
+                for i, obj in enumerate(objs2):
+                    obj.color = row['Color2']
+                    obj.shape = row['Shape2']
+                    if i in random_number:
+                        obj.color = row['Color1']
+        objs = objs1 + objs2
+        # if random.choice([True, False]):
+        #     for obj in objs2:
+        #         obj.x = obj.x + 256 + central_width
+        #         obj.y = obj.y + 256 + central_width
+        # else:
+        #     for obj in objs1:
+        #         obj.y = obj.y + 256 + central_width
+        #     for obj in objs2:
+        #         obj.x = obj.x + 256 + central_width
+    return objs
+
+def encode_objects_color(row, position, groupby='random'):
+    pass
+
+# create list of dicts for each extracted line
+trial_dicts_list = list(map(create_dict, stimuli_file))
+
+quandrant_width = 256
 
 def main():
-    # Set seed for reproducibility
-    # The seed used for the experiment was 1
-    np.random.seed(1)
+    # Read csv to retrieve relevant information for generating stimuli
+    file_path = '../items/items_w.Sentence.csv'
+    df = pd.read_csv(file_path)
+    print(df.head())
+    set_Grouped = ["Color", "Shape"]
+    # Iterate the rows of the dataframe
+    for index, row in df.iterrows():
+        if row.F2_matchness == "random":
+            groupby = 'random'
+        else:
+            groupby = row.Grouped
 
-    # Generate sentences for the practice trials
-    generate_experiment_stimuli(source_file="all_practice_stimuli_with_sentences.csv", output_file="all_practice_stimuli_final.csv", practice=True)
-    
-    # Generate sentences for the experiment trials
-    generate_experiment_stimuli(source_file="all_stimuli_with_sentences.csv", output_file="all_stimuli_final.csv")
-    
+    # Encode objects on the left side
+        objs_left = encode_objects(row)
+    # Encode objects on the right side
+        #obj_right = encode_objects(row, 'right')
 
-if __name__=='__main__':
+    # Define a background for drawing the objects
+        filename = "../experiment-pilot1/pictures/" + 'img_l' + str(row['List']) + '_' + 'i' + str(row['itemNr']) + ".svg"
+        sub_window_width = 512
+        line_width = 5
+        # area in the middle with no objects, set to 100 pixels
+        central_width = 100
+        window_width = 2 * sub_window_width + central_width + line_width
+        window_height = sub_window_width + line_width
+        s = cairo.SVGSurface(filename, window_width, window_height)
+        c = cairo.Context(s)
+        c.set_source_rgb(0.9, 0.9, 0.9)
+        c.rectangle(0, 0, window_width, window_height)
+        c.fill()
+
+    # Draw the objects
+        draw_object(c, objs_left)
+        #draw_object(c, obj_right)
+        s.finish()
+
+
+
+
+
+if __name__ == main():
     main()
-

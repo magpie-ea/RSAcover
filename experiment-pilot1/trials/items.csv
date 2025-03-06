@@ -1,0 +1,154 @@
+List,itemNr,F1_NPforms,F2_matchness,Grouped,Predicate,linguisticContext,Color1,Color2,Shape1,Shape2,Number1,Number2,Quadrant
+1,1,part,random,Color,separated,The blue and the orange ones are separated.,blue,orange,star,circle,3,8,13
+2,2,sum,random,Color,separated,The objects are separated.,blue,orange,star,triangle,8,6,13
+3,3,part,+match,Color,separated,The blue and the orange ones are separated.,blue,orange,star,square,4,4,13
+4,4,sum,+match,Color,separated,The objects are separated.,blue,orange,circle,triangle,4,5,13
+5,5,part,-match,Color,separated,The blue and the orange ones are separated.,blue,orange,circle,square,5,6,13
+6,6,sum,-match,Color,separated,The objects are separated.,blue,orange,triangle,square,4,8,13
+2,7,part,random,Color,separated,The blue and the braun ones are separated.,blue,braun,star,circle,5,8,13
+3,8,sum,random,Color,separated,The objects are separated.,blue,braun,star,triangle,4,5,13
+4,9,part,+match,Color,separated,The blue and the braun ones are separated.,blue,braun,star,square,7,4,13
+5,10,sum,+match,Color,separated,The objects are separated.,blue,braun,circle,triangle,8,7,13
+6,11,part,-match,Color,separated,The blue and the braun ones are separated.,blue,braun,circle,square,5,8,13
+1,12,sum,-match,Color,separated,The objects are separated.,blue,braun,triangle,square,7,7,13
+3,13,part,random,Color,separated,The blue and the grey ones are separated.,blue,grey,star,circle,6,3,13
+4,14,sum,random,Color,separated,The objects are separated.,blue,grey,star,triangle,7,8,13
+5,15,part,+match,Color,separated,The blue and the grey ones are separated.,blue,grey,star,square,7,3,13
+6,16,sum,+match,Color,separated,The objects are separated.,blue,grey,circle,triangle,4,7,13
+1,17,part,-match,Color,separated,The blue and the grey ones are separated.,blue,grey,circle,square,5,8,13
+2,18,sum,-match,Color,separated,The objects are separated.,blue,grey,triangle,square,4,8,13
+4,19,part,random,Color,separated,The orange and the braun ones are separated.,orange,braun,star,circle,5,8,13
+5,20,sum,random,Color,separated,The objects are separated.,orange,braun,star,triangle,4,7,13
+6,21,part,+match,Color,separated,The orange and the braun ones are separated.,orange,braun,star,square,6,5,13
+1,22,sum,+match,Color,separated,The objects are separated.,orange,braun,circle,triangle,7,4,13
+2,23,part,-match,Color,separated,The orange and the braun ones are separated.,orange,braun,circle,square,7,5,13
+3,24,sum,-match,Color,separated,The objects are separated.,orange,braun,triangle,square,7,4,13
+5,25,part,random,Color,separated,The orange and the grey ones are separated.,orange,grey,star,circle,5,6,13
+6,26,sum,random,Color,separated,The objects are separated.,orange,grey,star,triangle,7,4,13
+1,27,part,+match,Color,separated,The orange and the grey ones are separated.,orange,grey,star,square,5,5,13
+2,28,sum,+match,Color,separated,The objects are separated.,orange,grey,circle,triangle,8,4,13
+3,29,part,-match,Color,separated,The orange and the grey ones are separated.,orange,grey,circle,square,7,5,13
+4,30,sum,-match,Color,separated,The objects are separated.,orange,grey,triangle,square,4,4,13
+6,31,part,random,Color,separated,The grey and the braun ones are separated.,grey,braun,star,circle,4,8,13
+1,32,sum,random,Color,separated,The objects are separated.,grey,braun,star,triangle,3,3,13
+2,33,part,+match,Color,separated,The grey and the braun ones are separated.,grey,braun,star,square,3,6,13
+3,34,sum,+match,Color,separated,The objects are separated.,grey,braun,circle,triangle,4,8,13
+4,35,part,-match,Color,separated,The grey and the braun ones are separated.,grey,braun,circle,square,5,3,13
+5,36,sum,-match,Color,separated,The objects are separated.,grey,braun,triangle,square,4,5,13
+1,1,part,random,Shape,separated,The stars and the circles are separated.,blue,orange,star,circle,5,6,13
+2,2,sum,random,Shape,separated,The objects are separated.,blue,orange,star,triangle,5,6,13
+3,3,part,+match,Shape,separated,The stars and the squares are separated.,blue,orange,star,square,7,4,13
+4,4,sum,+match,Shape,separated,The objects are separated.,blue,orange,circle,triangle,4,8,13
+5,5,part,-match,Shape,separated,The circles and the squares are separated.,blue,orange,circle,square,6,7,13
+6,6,sum,-match,Shape,separated,The objects are separated.,blue,orange,triangle,square,5,4,13
+2,7,part,random,Shape,separated,The stars and the circles are separated.,blue,braun,star,circle,3,5,13
+3,8,sum,random,Shape,separated,The objects are separated.,blue,braun,star,triangle,3,3,13
+4,9,part,+match,Shape,separated,The stars and the squares are separated.,blue,braun,star,square,3,5,13
+5,10,sum,+match,Shape,separated,The objects are separated.,blue,braun,circle,triangle,5,7,13
+6,11,part,-match,Shape,separated,The circles and the squares are separated.,blue,braun,circle,square,7,3,13
+1,12,sum,-match,Shape,separated,The objects are separated.,blue,braun,triangle,square,3,8,13
+3,13,part,random,Shape,separated,The stars and the circles are separated.,blue,grey,star,circle,4,3,13
+4,14,sum,random,Shape,separated,The objects are separated.,blue,grey,star,triangle,6,3,13
+5,15,part,+match,Shape,separated,The stars and the squares are separated.,blue,grey,star,square,4,7,13
+6,16,sum,+match,Shape,separated,The objects are separated.,blue,grey,circle,triangle,5,4,13
+1,17,part,-match,Shape,separated,The circles and the squares are separated.,blue,grey,circle,square,4,3,13
+2,18,sum,-match,Shape,separated,The objects are separated.,blue,grey,triangle,square,7,3,13
+4,19,part,random,Shape,separated,The stars and the circles are separated.,orange,braun,star,circle,8,5,24
+5,20,sum,random,Shape,separated,The objects are separated.,orange,braun,star,triangle,4,3,24
+6,21,part,+match,Shape,separated,The stars and the squares are separated.,orange,braun,star,square,5,5,24
+1,22,sum,+match,Shape,separated,The objects are separated.,orange,braun,circle,triangle,8,7,24
+2,23,part,-match,Shape,separated,The circles and the squares are separated.,orange,braun,circle,square,3,6,24
+3,24,sum,-match,Shape,separated,The objects are separated.,orange,braun,triangle,square,8,8,24
+5,25,part,random,Shape,separated,The stars and the circles are separated.,orange,grey,star,circle,6,4,24
+6,26,sum,random,Shape,separated,The objects are separated.,orange,grey,star,triangle,6,8,24
+1,27,part,+match,Shape,separated,The stars and the squares are separated.,orange,grey,star,square,8,6,24
+2,28,sum,+match,Shape,separated,The objects are separated.,orange,grey,circle,triangle,8,7,24
+3,29,part,-match,Shape,separated,The circles and the squares are separated.,orange,grey,circle,square,5,4,24
+4,30,sum,-match,Shape,separated,The objects are separated.,orange,grey,triangle,square,7,7,24
+6,31,part,random,Shape,separated,The stars and the circles are separated.,grey,braun,star,circle,3,6,24
+1,32,sum,random,Shape,separated,The objects are separated.,grey,braun,star,triangle,3,8,24
+2,33,part,+match,Shape,separated,The stars and the squares are separated.,grey,braun,star,square,5,5,24
+3,34,sum,+match,Shape,separated,The objects are separated.,grey,braun,circle,triangle,5,6,24
+4,35,part,-match,Shape,separated,The circles and the squares are separated.,grey,braun,circle,square,5,3,24
+5,36,sum,-match,Shape,separated,The objects are separated.,grey,braun,triangle,square,3,5,24
+1,1,part,random,Color,grouped,The blue and the orange ones are grouped.,blue,orange,star,circle,3,4,13
+2,2,sum,random,Color,grouped,The objects are grouped.,blue,orange,star,triangle,5,4,13
+3,3,part,+match,Color,grouped,The blue and the orange ones are grouped.,blue,orange,star,square,5,6,13
+4,4,sum,+match,Color,grouped,The objects are grouped.,blue,orange,circle,triangle,3,3,13
+5,5,part,-match,Color,grouped,The blue and the orange ones are grouped.,blue,orange,circle,square,7,6,13
+6,6,sum,-match,Color,grouped,The objects are grouped.,blue,orange,triangle,square,6,7,13
+2,7,part,random,Color,grouped,The blue and the braun ones are grouped.,blue,braun,star,circle,6,8,13
+3,8,sum,random,Color,grouped,The objects are grouped.,blue,braun,star,triangle,6,8,13
+4,9,part,+match,Color,grouped,The blue and the braun ones are grouped.,blue,braun,star,square,6,7,13
+5,10,sum,+match,Color,grouped,The objects are grouped.,blue,braun,circle,triangle,6,4,13
+6,11,part,-match,Color,grouped,The blue and the braun ones are grouped.,blue,braun,circle,square,7,7,13
+1,12,sum,-match,Color,grouped,The objects are grouped.,blue,braun,triangle,square,8,8,13
+3,13,part,random,Color,grouped,The blue and the grey ones are grouped.,blue,grey,star,circle,5,6,13
+4,14,sum,random,Color,grouped,The objects are grouped.,blue,grey,star,triangle,5,5,13
+5,15,part,+match,Color,grouped,The blue and the grey ones are grouped.,blue,grey,star,square,5,6,13
+6,16,sum,+match,Color,grouped,The objects are grouped.,blue,grey,circle,triangle,8,7,13
+1,17,part,-match,Color,grouped,The blue and the grey ones are grouped.,blue,grey,circle,square,6,6,13
+2,18,sum,-match,Color,grouped,The objects are grouped.,blue,grey,triangle,square,8,4,13
+4,19,part,random,Color,grouped,The orange and the braun ones are grouped.,orange,braun,star,circle,8,4,13
+5,20,sum,random,Color,grouped,The objects are grouped.,orange,braun,star,triangle,6,6,13
+6,21,part,+match,Color,grouped,The orange and the braun ones are grouped.,orange,braun,star,square,6,8,13
+1,22,sum,+match,Color,grouped,The objects are grouped.,orange,braun,circle,triangle,5,7,13
+2,23,part,-match,Color,grouped,The orange and the braun ones are grouped.,orange,braun,circle,square,7,5,13
+3,24,sum,-match,Color,grouped,The objects are grouped.,orange,braun,triangle,square,8,3,13
+5,25,part,random,Color,grouped,The orange and the grey ones are grouped.,orange,grey,star,circle,6,5,13
+6,26,sum,random,Color,grouped,The objects are grouped.,orange,grey,star,triangle,8,3,13
+1,27,part,+match,Color,grouped,The orange and the grey ones are grouped.,orange,grey,star,square,6,3,13
+2,28,sum,+match,Color,grouped,The objects are grouped.,orange,grey,circle,triangle,4,8,13
+3,29,part,-match,Color,grouped,The orange and the grey ones are grouped.,orange,grey,circle,square,3,4,13
+4,30,sum,-match,Color,grouped,The objects are grouped.,orange,grey,triangle,square,6,8,13
+6,31,part,random,Color,grouped,The grey and the braun ones are grouped.,grey,braun,star,circle,3,4,13
+1,32,sum,random,Color,grouped,The objects are grouped.,grey,braun,star,triangle,3,8,13
+2,33,part,+match,Color,grouped,The grey and the braun ones are grouped.,grey,braun,star,square,7,4,13
+3,34,sum,+match,Color,grouped,The objects are grouped.,grey,braun,circle,triangle,8,4,13
+4,35,part,-match,Color,grouped,The grey and the braun ones are grouped.,grey,braun,circle,square,5,6,13
+5,36,sum,-match,Color,grouped,The objects are grouped.,grey,braun,triangle,square,6,6,13
+1,1,part,random,Shape,grouped,The stars and the circles are grouped.,blue,orange,star,circle,4,4,13
+2,2,sum,random,Shape,grouped,The objects are grouped.,blue,orange,star,triangle,8,3,13
+3,3,part,+match,Shape,grouped,The stars and the squares are grouped.,blue,orange,star,square,5,7,13
+4,4,sum,+match,Shape,grouped,The objects are grouped.,blue,orange,circle,triangle,4,3,13
+5,5,part,-match,Shape,grouped,The circles and the squares are grouped.,blue,orange,circle,square,6,6,13
+6,6,sum,-match,Shape,grouped,The objects are grouped.,blue,orange,triangle,square,3,7,13
+2,7,part,random,Shape,grouped,The stars and the circles are grouped.,blue,braun,star,circle,6,6,13
+3,8,sum,random,Shape,grouped,The objects are grouped.,blue,braun,star,triangle,6,3,13
+4,9,part,+match,Shape,grouped,The stars and the squares are grouped.,blue,braun,star,square,4,5,13
+5,10,sum,+match,Shape,grouped,The objects are grouped.,blue,braun,circle,triangle,6,8,13
+6,11,part,-match,Shape,grouped,The circles and the squares are grouped.,blue,braun,circle,square,7,7,13
+1,12,sum,-match,Shape,grouped,The objects are grouped.,blue,braun,triangle,square,8,4,13
+3,13,part,random,Shape,grouped,The stars and the circles are grouped.,blue,grey,star,circle,6,5,13
+4,14,sum,random,Shape,grouped,The objects are grouped.,blue,grey,star,triangle,7,8,13
+5,15,part,+match,Shape,grouped,The stars and the squares are grouped.,blue,grey,star,square,6,3,13
+6,16,sum,+match,Shape,grouped,The objects are grouped.,blue,grey,circle,triangle,8,5,13
+1,17,part,-match,Shape,grouped,The circles and the squares are grouped.,blue,grey,circle,square,6,7,13
+2,18,sum,-match,Shape,grouped,The objects are grouped.,blue,grey,triangle,square,6,8,13
+4,19,part,random,Shape,grouped,The stars and the circles are grouped.,orange,braun,star,circle,5,5,24
+5,20,sum,random,Shape,grouped,The objects are grouped.,orange,braun,star,triangle,5,6,24
+6,21,part,+match,Shape,grouped,The stars and the squares are grouped.,orange,braun,star,square,3,8,24
+1,22,sum,+match,Shape,grouped,The objects are grouped.,orange,braun,circle,triangle,6,7,24
+2,23,part,-match,Shape,grouped,The circles and the squares are grouped.,orange,braun,circle,square,8,7,24
+3,24,sum,-match,Shape,grouped,The objects are grouped.,orange,braun,triangle,square,5,3,24
+5,25,part,random,Shape,grouped,The stars and the circles are grouped.,orange,grey,star,circle,6,3,24
+6,26,sum,random,Shape,grouped,The objects are grouped.,orange,grey,star,triangle,3,5,24
+1,27,part,+match,Shape,grouped,The stars and the squares are grouped.,orange,grey,star,square,7,5,24
+2,28,sum,+match,Shape,grouped,The objects are grouped.,orange,grey,circle,triangle,6,4,24
+3,29,part,-match,Shape,grouped,The circles and the squares are grouped.,orange,grey,circle,square,7,3,24
+4,30,sum,-match,Shape,grouped,The objects are grouped.,orange,grey,triangle,square,7,7,24
+6,31,part,random,Shape,grouped,The stars and the circles are grouped.,grey,braun,star,circle,8,8,24
+1,32,sum,random,Shape,grouped,The objects are grouped.,grey,braun,star,triangle,4,5,24
+2,33,part,+match,Shape,grouped,The stars and the squares are grouped.,grey,braun,star,square,5,6,24
+3,34,sum,+match,Shape,grouped,The objects are grouped.,grey,braun,circle,triangle,7,6,24
+4,35,part,-match,Shape,grouped,The circles and the squares are grouped.,grey,braun,circle,square,8,7,24
+5,36,sum,-match,Shape,grouped,The objects are grouped.,grey,braun,triangle,square,6,8,24
+1,901,filler,filler,Shape,grouped,The stars and the squares are grouped.,grey,braun,star,square,6,5,24
+1,902,filler,filler,Shape,grouped,The circles and the triangles are grouped.,grey,braun,circle,triangle,3,3,24
+1,903,filler,filler,Shape,grouped,The circles and the squares are grouped.,grey,braun,circle,square,7,7,24
+1,904,filler,filler,Shape,grouped,The triangles and the squares are grouped.,grey,braun,triangle,square,8,8,24
+1,905,filler,filler,Shape,grouped,The stars and the squares are grouped.,grey,braun,star,square,6,6,24
+1,906,filler,filler,Shape,grouped,The circles and the triangles are grouped.,grey,braun,circle,triangle,8,5,24
+1,801,practice,practice,Shape,grouped,The circles and the squares are grouped.,grey,braun,circle,square,8,6,24
+1,802,practice,practice,Shape,grouped,The triangles and the squares are grouped.,grey,braun,triangle,square,3,5,24
+1,802,practice,practice,Shape,grouped,The triangles and the squares are grouped.,grey,braun,triangle,square,4,7,24
