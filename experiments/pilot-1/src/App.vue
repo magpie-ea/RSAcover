@@ -46,24 +46,34 @@
 
 <script>
 import _ from 'lodash';
-import items from '../trials/items_test.csv'
+import allItems from '../trials/items_test.csv'
 
 export default {
   name: 'App',
   data() {
     return {
-      items: _.shuffle(items),
-      //items: items
-      //random choose items.List
-      //items: _.sample(items.map(item => item.List)),
-      //items: _.sample(this.items.map(item => item.List)),
-      //items: items.filter(item => item.List === 1)
+      // Choose a random list between 1 and 6 (computed once at creation)
+      randomList: _.sample([1, 2, 3, 4, 5, 6]),
+      // Manual mode toggle and manual list value (null means no override)
+      manualMode: false,
+      manualList: null
     };
   },
   computed: {
     // Expose lodash to template code
     _() {
       return _;
+    },
+    // Determine which list to use: manual or random
+    activeList() {
+      return this.manualMode && this.manualList ? this.manualList : this.randomList;
+    },
+    // Create a computed property 'items' for the filtered and shuffled trials
+    items() {
+      // Assumes each item in the CSV has a property named "list"
+      return _.shuffle(
+        allItems.filter(item => Number(item.List) === Number(this.activeList))
+      );
     }
   },
   methods: {
