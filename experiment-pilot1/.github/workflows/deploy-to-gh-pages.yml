@@ -13,7 +13,7 @@ jobs:
       max-parallel: 1
       matrix:
         folder:
-          - ./experiment-pilot1
+          - experiment-pilot1
 
     runs-on: ubuntu-latest
     steps:
