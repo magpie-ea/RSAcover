@@ -46,13 +46,14 @@
 
 <script>
 import _ from 'lodash';
-import items from '../trials/items.csv'
+import items from '../trials/items_test.csv'
 
 export default {
   name: 'App',
   data() {
     return {
       items: _.shuffle(items),
+      //items: items
       //random choose items.List
       //items: _.sample(items.map(item => item.List)),
       //items: _.sample(this.items.map(item => item.List)),

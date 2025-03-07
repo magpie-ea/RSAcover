@@ -1,0 +1,13 @@
+List,itemNr,F1_NPforms,F2_matchness,Grouped,Predicate,linguisticContext,Color1,Color2,Shape1,Shape2,Number1,Number2,Quadrant
+1,1,part,random,Color,separated,The blue and the orange ones are separated.,blue,orange,star,circle,3,8,13
+2,2,sum,random,Color,separated,The objects are separated.,blue,orange,heart,cross,8,6,13
+3,3,part,+match,Color,separated,The blue and the orange ones are separated.,blue,orange,star,square,4,4,13
+4,4,sum,+match,Color,separated,The objects are separated.,blue,orange,circle,triangle,4,5,13
+5,5,part,-match,Color,separated,The blue and the orange ones are separated.,blue,orange,circle,square,5,6,13
+6,6,sum,-match,Color,separated,The objects are separated.,blue,orange,triangle,square,4,8,13
+1,37,part,random,Shape,separated,The stars and the circles are separated.,blue,orange,star,circle,5,6,13
+2,38,sum,random,Shape,separated,The objects are separated.,blue,orange,Heart,cross,5,6,13
+3,39,part,+match,Shape,separated,The stars and the squares are separated.,blue,orange,star,square,7,4,13
+4,40,sum,+match,Shape,separated,The objects are separated.,blue,orange,circle,triangle,4,8,13
+5,41,part,-match,Shape,separated,The circles and the squares are separated.,blue,orange,circle,square,6,7,13
+6,42,sum,-match,Shape,separated,The objects are separated.,blue,orange,triangle,square,5,4,13

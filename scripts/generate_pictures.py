@@ -381,12 +381,39 @@ def sum_dict(a, b):
         temp[key] = sum([d.get(key, 0) for d in (a, b)])
     return temp
 
+def get_grouped_objs(row, objs1, objs2, groupby):
+    random_number = [random.randint(1, 3) for _ in range(2)]
+    if groupby == "Color":
+        for i, obj in enumerate(objs1):
+            obj.color = row['Color1']
+            obj.shape = row['Shape1']
+            if i in random_number:
+                obj.shape = row['Shape2']
+        for i, obj in enumerate(objs2):
+            obj.color = row['Color2']
+            obj.shape = row['Shape2']
+            if i in random_number:
+                obj.shape = row['Shape1']
+                
+    if groupby == "Shape":
+        for i, obj in enumerate(objs1):
+            obj.color = row['Color1']
+            obj.shape = row['Shape1']
+            if i in random_number:
+                obj.color = row['Color2']
+        for i, obj in enumerate(objs2):
+            obj.color = row['Color2']
+            obj.shape = row['Shape2']
+            if i in random_number:
+                obj.color = row['Color1']
+    return objs1 + objs2
+
 def encode_objects(row, matchness = "random", groupby='Color', central_width=50):
     matchness = row['F2_matchness']
+    groupby_list = ["Color", "Shape"]
     groupby = row['Grouped']
     color_dict = ["orange", "blue", "grey", "brown", "black", "green", "purple", "yellow", "turquoise", "red", "pink"]
     shape_dict = ["triangle", "heart", "square", "cross", "circle", "star"]
-    random_number = random.randint(1, 3)
     number_color1 = int(row['Number1'])
     number_color2 = int(row['Number2'])
     total_number = number_color1 + number_color2
@@ -409,51 +436,12 @@ def encode_objects(row, matchness = "random", groupby='Color', central_width=50)
             obj.x = obj.x + 512 + central_width
         random_number = [random.randint(1, 3) for _ in range(2)]
         if matchness == "+match":
-            if groupby == "Color":
-                for i, obj in enumerate(objs1):
-                    obj.color = row['Color1']
-                    obj.shape = row['Shape1']
-                    if i in random_number:
-                        obj.shape = row['Shape2']
-                for i, obj in enumerate(objs2):
-                    obj.color = row['Color2']
-                    obj.shape = row['Shape2']
-                    if i in random_number:
-                        obj.shape = row['Shape1']
-            else:
-                for i, obj in enumerate(objs1):
-                    obj.color = row['Color1']
-                    obj.shape = row['Shape1']
-                    if i in random_number:
-                        obj.color = row['Color2']
-                for i in enumerate(objs2):
-                    obj.color = row['Color2']
-                    obj.shape = row['Shape2']
-                    if i in random_number:
-                        obj.color = row['Color1']
-        elif matchness == "-match":
-            if groupby == "Color":
-                for i, obj in enumerate(objs1):
-                    obj.color = row['Color1']
-                    obj.shape = row['Shape1']
-                    if i in random_number:
-                        obj.shape = row['Shape2']
-                for i, obj in enumerate(objs2):
-                    obj.color = row['Color2']
-                    obj.shape = row['Shape2']
-                    if i in random_number:
-                        obj.shape = row['Shape1']
-            else:
-                for i, obj in enumerate(objs1):
-                    obj.color = row['Color1']
-                    obj.shape = row['Shape1']
-                    if i in random_number:
-                        obj.color = row['Color2']
-                for i, obj in enumerate(objs2):
-                    obj.color = row['Color2']
-                    obj.shape = row['Shape2']
-                    if i in random_number:
-                        obj.color = row['Color1']
+            objs = get_grouped_objs(row, objs1, objs2, groupby = groupby)
+
+        if matchness == "-match":
+            groupby_list = ["Color", "Shape"]
+            other_groupby = groupby_list[1] if groupby == groupby_list[0] else groupby_list[0]
+            objs = get_grouped_objs(row, objs1, objs2, groupby = other_groupby)
         objs = objs1 + objs2
         # if random.choice([True, False]):
         #     for obj in objs2:
@@ -476,7 +464,7 @@ quandrant_width = 256
 
 def main():
     # Read csv to retrieve relevant information for generating stimuli
-    file_path = '../items/items_w.Sentence.csv'
+    file_path = '../items/items_test.csv'
     df = pd.read_csv(file_path)
     print(df.head())
     set_Grouped = ["Color", "Shape"]
