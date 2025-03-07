@@ -12,15 +12,58 @@ def encode_subject(NPforms, Grouped, Color1, Color2, Shape1, Shape2):
             realised_subject = f"The {Shape1}s and the {Shape2}s"
     return realised_subject
 
-def generate_experiment_sentences(source_file = "../items/items.csv", target_file = "../items/items_w.Sentence.csv"):
+def convert_number_to_word(n):
+    num_words = {
+        0: "zero",
+        1: "one",
+        2: "two",
+        3: "three",
+        4: "four",
+        5: "five",
+        6: "six",
+        7: "seven",
+        8: "eight",
+        9: "nine"
+    }
+    return num_words.get(n, "Number out of range")
+
+def generate_experiment_sentences(source_file = "../items/items.csv", target_file = "../items/items.csv"):
     df = pd.read_csv(source_file, encoding="utf-8").reset_index(drop=True)
     print(df.head())
-
+    fillerNr_list = [901, 902, 903, 904, 905, 906]
     for i, row in df.iterrows():
-        realised_subject = encode_subject(row.F1_NPforms, row.Grouped, row.Color1, row.Color2, row.Shape1, row.row.Shape2)
+        if row.itemNr not in fillerNr_list:
+            realised_subject = encode_subject(row.F1_NPforms, row.Grouped, row.Color1, row.Color2, row.Shape1, row.Shape2)
+        elif row.F1_NPforms == "+filler":
+            if row.F2_matchness == "first":
+                if row.Grouped == "Color":
+                    realised_subject = f"The {convert_number_to_word(row.Number1)} {row.Color1} objects"
+                else:
+                    realised_subject = f"The {convert_number_to_word(row.Number1)} {row.Shape1}s"
+            else:
+                if row.Grouped == "Color":
+                    realised_subject = f"The {convert_number_to_word(row.Number2)} {row.Color2} objects"
+                else:
+                    realised_subject = f"The {convert_number_to_word(row.Number2)} {row.Shape2}s"
+        elif row.F1_NPforms == "-filler":
+            # Generate a random integer between 1 and 9 that do not match row.Number1 and row.Number2
+            random_number = np.random.choice([i for i in range(1, 10) if i not in [row.Number1, row.Number2]])
+            if row.F2_matchness == "first":
+                if row.Grouped == "Color":
+                    realised_subject = f"The {convert_number_to_word(random_number)} {row.Color1} objects"
+                else:
+                    realised_subject = f"The {convert_number_to_word(random_number)} {row.Shape1}s"
+            else:
+                if row.Grouped == "Color":
+                    realised_subject = f"The {convert_number_to_word(random_number)} {row.Color2} objects"
+                else:
+                    realised_subject = f"The {convert_number_to_word(random_number)} {row.Shape2}s"
+        
         realised_predicate = "separated" if row.Predicate == "separated" else "grouped"
         realised_sentence = f"{realised_subject} are {realised_predicate}."
-        df.loc[i, 'linguisticContext'] = realised_sentence
+        df['linguisticContext'] = df['linguisticContext'].astype(str)
+        df.at[i, 'linguisticContext'] = str(realised_sentence)
+    
     return df, target_file
 
 def main():

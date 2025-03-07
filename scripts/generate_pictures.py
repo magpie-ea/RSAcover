@@ -286,7 +286,7 @@ def get_area_controlled_radii(shapes_dict, min_radius, max_radius, std=0.5,
 
 def scattered_random(objs, area_control=False,
                      total_area=None,
-                     num_pixels=(512, 512), padding=10,
+                     num_pixels=(512, 512), padding=20,
                      min_radius=30, max_radius=40, std=5):
     """Generates ScatteredRandom images: the dots are scattered
     randomly through the image. """
@@ -349,26 +349,6 @@ def shift_position(position, obj):
         obj.y = obj.y + 256 + central_width
     return obj
 
-
-# read csv file as list of lists of strings
-with open('../items/items_w.Sentence.csv', 'r', encoding='utf-8') as f:
-    reader = csv.reader(f)
-    # skip header
-    next(reader, None)
-    stimuli_file = list(reader)
-
-
-# create dict with relevant data
-def create_dict(line):
-    line_string = ";".join(str(x) for x in line)
-    line_cells = line_string.split(";")
-    return dict(list = line_cells[0], item=line_cells[1], F1_NPforms=line_cells[2], F2_matchness=line_cells[3],
-                Grouped = line_cells[4], Predicate=line_cells[5], linguisticContext = line_cells[6],
-                Color1=line_cells[7], Color2=line_cells[8], Shape1=line_cells[9], Shape2=line_cells[10], Number1=line_cells[11], Number2=line_cells[12],
-                left=dict(shape=line_cells[6], position='left', color_1=line_cells[5], numbers_1=line_cells[7], color_2=line_cells[5], numbers_2=line_cells[7]),
-                right=dict(shape=line_cells[9], position = 'right', color_1=line_cells[8], numbers_1=line_cells[10], color_2=line_cells[8], numbers_2=line_cells[10]))
-
-
 def adjust_size(max_size, size, coefficient):
     size = max_size * size * coefficient
     if size >= max_size:
@@ -394,7 +374,7 @@ def get_grouped_objs(row, objs1, objs2, groupby):
             obj.shape = row['Shape2']
             if i in random_number:
                 obj.shape = row['Shape1']
-                
+
     if groupby == "Shape":
         for i, obj in enumerate(objs1):
             obj.color = row['Color1']
@@ -409,11 +389,7 @@ def get_grouped_objs(row, objs1, objs2, groupby):
     return objs1 + objs2
 
 def encode_objects(row, matchness = "random", groupby='Color', central_width=50):
-    matchness = row['F2_matchness']
-    groupby_list = ["Color", "Shape"]
     groupby = row['Grouped']
-    color_dict = ["orange", "blue", "grey", "brown", "black", "green", "purple", "yellow", "turquoise", "red", "pink"]
-    shape_dict = ["triangle", "heart", "square", "cross", "circle", "star"]
     number_color1 = int(row['Number1'])
     number_color2 = int(row['Number2'])
     total_number = number_color1 + number_color2
@@ -437,51 +413,30 @@ def encode_objects(row, matchness = "random", groupby='Color', central_width=50)
         random_number = [random.randint(1, 3) for _ in range(2)]
         if matchness == "+match":
             objs = get_grouped_objs(row, objs1, objs2, groupby = groupby)
-
         if matchness == "-match":
             groupby_list = ["Color", "Shape"]
             other_groupby = groupby_list[1] if groupby == groupby_list[0] else groupby_list[0]
             objs = get_grouped_objs(row, objs1, objs2, groupby = other_groupby)
-        objs = objs1 + objs2
-        # if random.choice([True, False]):
-        #     for obj in objs2:
-        #         obj.x = obj.x + 256 + central_width
-        #         obj.y = obj.y + 256 + central_width
-        # else:
-        #     for obj in objs1:
-        #         obj.y = obj.y + 256 + central_width
-        #     for obj in objs2:
-        #         obj.x = obj.x + 256 + central_width
+       
     return objs
-
-def encode_objects_color(row, position, groupby='random'):
-    pass
-
-# create list of dicts for each extracted line
-trial_dicts_list = list(map(create_dict, stimuli_file))
 
 quandrant_width = 256
 
 def main():
     # Read csv to retrieve relevant information for generating stimuli
-    file_path = '../items/items_test.csv'
+    file_path = '../items/items.csv'
     df = pd.read_csv(file_path)
     print(df.head())
-    set_Grouped = ["Color", "Shape"]
+    fillerNr_list = [901, 902, 903, 904, 905, 906]
     # Iterate the rows of the dataframe
-    for index, row in df.iterrows():
-        if row.F2_matchness == "random":
-            groupby = 'random'
+    for i, row in df.iterrows():
+        if row.itemNr not in fillerNr_list:
+            objs = encode_objects(row, row.F2_matchness)
         else:
-            groupby = row.Grouped
-
-    # Encode objects on the left side
-        objs_left = encode_objects(row)
-    # Encode objects on the right side
-        #obj_right = encode_objects(row, 'right')
+            objs = encode_objects(row, matchness = "random")
 
     # Define a background for drawing the objects
-        filename = "../experiment-pilot1/pictures/" + 'img_l' + str(row['List']) + '_' + 'i' + str(row['itemNr']) + ".svg"
+        filename = "../experiments/pilot-1/pictures/" + 'img_l' + str(row['List']) + '_' + 'i' + str(row['itemNr']) + ".svg"
         sub_window_width = 512
         line_width = 5
         # area in the middle with no objects, set to 100 pixels
@@ -495,8 +450,7 @@ def main():
         c.fill()
 
     # Draw the objects
-        draw_object(c, objs_left)
-        #draw_object(c, obj_right)
+        draw_object(c, objs)
         s.finish()
 
 
