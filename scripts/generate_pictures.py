@@ -388,26 +388,38 @@ def get_grouped_objs(row, objs1, objs2, groupby):
                 obj.color = row['Color1']
     return objs1 + objs2
 
-def encode_objects(row, matchness = "random", groupby='Color', central_width=50):
+def encode_objects(row, matchness = "random", groupby='Color', central_width=100):
     groupby = row['Grouped']
     number_color1 = int(row['Number1'])
     number_color2 = int(row['Number2'])
     total_number = number_color1 + number_color2
     if matchness == 'random':
-        objs = [Object() for _ in range(total_number)]
-        objs = scattered_random(objs, num_pixels=(1024, 512))
+        objs1 = [Object() for _ in range(number_color1)]
+        objs2 = [Object() for _ in range(number_color2)]
+        objs1 = scattered_random(objs1, num_pixels=(512, 512), padding=50)
+        objs2 = scattered_random(objs2, num_pixels=(512, 512), padding=50)
         # Distribute colors and shapes
-        for i in range(number_color1):
-            objs[i].color = row['Color1']
-            objs[i].shape = row['Shape1']
-        for i in range(number_color1, total_number):
-            objs[i].color = row['Color2']
-            objs[i].shape = row['Shape2']
+        for obj in objs1:
+            if random.choice([True, False]):
+                obj.color = row['Color1']
+                obj.shape = row['Shape1']
+            else:
+                obj.color = row['Color2']
+                obj.shape = row['Shape2']
+        for obj in objs2:
+            obj.x = obj.x + 512 + central_width
+            if random.choice([True, False]):
+                obj.color = row['Color2']
+                obj.shape = row['Shape2']
+            else:
+                obj.color = row['Color1']
+                obj.shape = row['Shape1']
+        objs = objs1 + objs2
     else:
         objs1 = [Object() for _ in range(number_color1)]
         objs2 = [Object() for _ in range(number_color2)]
-        objs1 = scattered_random(objs1, num_pixels=(512, 512))
-        objs2 = scattered_random(objs2, num_pixels=(512, 512))
+        objs1 = scattered_random(objs1, num_pixels=(512, 512), padding=50)
+        objs2 = scattered_random(objs2, num_pixels=(512, 512), padding=50) 
         for obj in objs2:
             obj.x = obj.x + 512 + central_width
         random_number = [random.randint(1, 3) for _ in range(2)]
@@ -424,7 +436,7 @@ quandrant_width = 256
 
 def main():
     # Read csv to retrieve relevant information for generating stimuli
-    file_path = '../items/items.csv'
+    file_path = '../experiments/pilot-1/trials/items.csv'
     df = pd.read_csv(file_path)
     print(df.head())
     fillerNr_list = [901, 902, 903, 904, 905, 906]
@@ -440,7 +452,7 @@ def main():
         sub_window_width = 512
         line_width = 5
         # area in the middle with no objects, set to 100 pixels
-        central_width = 100
+        central_width = 150
         window_width = 2 * sub_window_width + central_width + line_width
         window_height = sub_window_width + line_width
         s = cairo.SVGSurface(filename, window_width, window_height)

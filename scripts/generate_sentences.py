@@ -7,7 +7,7 @@ def encode_subject(NPforms, Grouped, Color1, Color2, Shape1, Shape2):
         realised_subject = "The objects"
     else:
         if Grouped == "Color":
-            realised_subject = f"The {Color1} and the {Color2} ones"
+            realised_subject = f"The {Color1} objects and the {Color2} objects"
         else:
             realised_subject = f"The {Shape1}s and the {Shape2}s"
     return realised_subject
@@ -27,7 +27,7 @@ def convert_number_to_word(n):
     }
     return num_words.get(n, "Number out of range")
 
-def generate_experiment_sentences(source_file = "../items/items.csv", target_file = "../items/items.csv"):
+def generate_experiment_sentences(source_file = "../experiments/pilot-1/trials/items.csv", target_file = "../experiments/pilot-1/trials/items.csv"):
     df = pd.read_csv(source_file, encoding="utf-8").reset_index(drop=True)
     print(df.head())
     fillerNr_list = [901, 902, 903, 904, 905, 906]
@@ -47,7 +47,7 @@ def generate_experiment_sentences(source_file = "../items/items.csv", target_fil
                     realised_subject = f"The {convert_number_to_word(row.Number2)} {row.Shape2}s"
         elif row.F1_NPforms == "-filler":
             # Generate a random integer between 1 and 9 that do not match row.Number1 and row.Number2
-            random_number = np.random.choice([i for i in range(1, 10) if i not in [row.Number1, row.Number2]])
+            random_number = np.random.choice([i for i in range(2, 10) if i not in [row.Number1, row.Number2]])
             if row.F2_matchness == "first":
                 if row.Grouped == "Color":
                     realised_subject = f"The {convert_number_to_word(random_number)} {row.Color1} objects"
