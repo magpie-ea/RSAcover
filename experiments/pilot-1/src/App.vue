@@ -31,7 +31,7 @@
         <!-- Display trial content (customize as needed) -->
         <img :src="getImagePath(trial.List,trial.itemNr)" />
         <p>{{ trial.linguisticContext }}</p>
-            <br>
+            <!-- <br>
             F1 NP: {{trial.F1_NPforms}}
             <br>
             F2 matchness: {{trial.F2_matchness}}
@@ -40,7 +40,7 @@
             <br>
             Item number: {{trial.itemNr}}
             <br>
-            Groupby: {{trial.Grouped}}
+            Groupby: {{trial.Grouped}} -->
         <SliderInput
           left="completely unacceptable"
           right="completely acceptable"
