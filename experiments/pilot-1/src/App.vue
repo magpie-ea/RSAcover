@@ -54,8 +54,8 @@
               trialNR: i,
               itemNr: trial.itemNr,
               List: trial.List,
-              F1_NPforms: "practiceTrial",
-              F2_matchness: "practiceTrial",
+              F1_NPforms: trial.F1_NPforms,
+              F2_matchness: trial.F2_matchness,
               acceptability: $magpie.measurements.practice,
             }"
           />
