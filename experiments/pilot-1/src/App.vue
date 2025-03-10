@@ -1,7 +1,7 @@
 <template>
   <Experiment title="Plurals in Context: A Language Study">
     <InstructionScreen :title="'Welcome'">
-      <p>Thank you for taking part in our experiment! The session will take approximately 15-20 minutes.</p>
+      <p>Thank you for taking part in our experiment! The session will take approximately 10-15 minutes.</p>
 
       <p><strong>About the Study:</strong><br />
       This study investigates language use in context. You will evaluate visual scenes paired with sentences by indicating their acceptability on a slider. Your responses will contribute to our understanding of language processing in varied scenarios. More details about the research questions will be provided upon completion of the experiment. Detailed instructions and practice trials will follow on the next screen.</p>
