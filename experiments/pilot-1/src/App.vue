@@ -100,9 +100,11 @@
       <p>Thank you for participating in our experiment!</p>
       <p>Your responses have been recorded.</p>
       <p>Please click the button below to submit your results.</p>
-      <p>One </p>
     </InstructionsScreen>
+    <PostTestScreen />
     <SubmitResultsScreen />
+
+
   </Experiment>
 </template>
 
