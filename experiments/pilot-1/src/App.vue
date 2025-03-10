@@ -16,7 +16,7 @@
     <InstructionScreen>
       <p><strong>Instructions:</strong></p>
       <p>In each trial, you will be presented with a visual scene paired with a sentence. Your task is to evaluate how well the sentence fits the context shown in the image. Use the slider to indicate your level of acceptability, then click the "Submit" button to proceed to the next trial.</p>
-      <p>You will have the opportunity to take a break after completing half of the trials.</p>
+      <!-- <p>You will have the opportunity to take a break after completing half of the trials.</p> -->
     </InstructionScreen>
 
     <InstructionScreen>
@@ -66,7 +66,7 @@
 
             {{trial.linguisticContext}}
             <br>
-            F1 NP: {{trial.F1_NPforms}}
+            <!-- F1 NP: {{trial.F1_NPforms}}
             <br>
             F2 matchness: {{trial.F2_matchness}}
             <br>
@@ -74,7 +74,7 @@
             <br>
             Item number: {{trial.itemNr}}
             <br>
-            Groupby: {{trial.Grouped}}
+            Groupby: {{trial.Grouped}} -->
 
 
             <SliderInput
