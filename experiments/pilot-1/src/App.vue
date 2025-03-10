@@ -49,6 +49,16 @@
         <button v-if="$magpie.measurements.practice" @click="$magpie.saveAndNextScreen();">
           Submit
         </button>
+        <Record
+            :data="{
+              trialNR: i,
+              itemNr: trial.itemNr,
+              List: trial.List,
+              F1_NPforms: "practiceTrial",
+              F2_matchness: "practiceTrial",
+              acceptability: $magpie.measurements.practice,
+            }"
+          />
       </Screen>
     </template>
 
@@ -88,8 +98,8 @@
               trialNR: i,
               itemNr: trial.itemNr,
               List: trial.List,
-              F1: trial.F1_NPforms,
-              F2: trial.F2_matchness,
+              F1_NPforms: trial.F1_NPforms,
+              F2_matchness: trial.F2_matchness,
               acceptability: $magpie.measurements.acceptability,
             }"
           />
