@@ -1,4 +1,4 @@
-# **Plural Prediction Study**  
+# **RSAcover**  
 
 This repository contains all materials related to the study on the interpretation of plural predication in different contexts. It includes experiment structures, data, analysis scripts, and research writing.  
 
