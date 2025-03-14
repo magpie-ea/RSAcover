@@ -69,6 +69,7 @@ Drop unnecessary columns and NA values. Filter out practice and filler items.
 ```{r}
 practice_itemNr_list <- c(801,802,803)
 filler_itemNr_list <- c(901,902,903,904,905,906)
+grouped_itemNr_list <- c(73:144)
 
 data_filler <- data %>% select(submission_id,, 
                                acceptability, 
@@ -85,6 +86,7 @@ data <- data %>% select(submission_id,
                         F2_matchness) %>% 
   filter(!itemNr %in% practice_itemNr_list & !itemNr %in% filler_itemNr_list)
 
+data_without_grouped <- data %>% filter(!itemNr %in% grouped_itemNr_list)
 
 ```
 
@@ -124,7 +126,7 @@ ggplot(data, aes(x = acceptability)) +
 
 ```{r}
 
-p1 <- ggplot(data, aes(x = F1_NPforms, y = acceptability, fill = F2_matchness)) +
+p1 <- ggplot(data_without_grouped, aes(x = F1_NPforms, y = acceptability, fill = F2_matchness)) +
   geom_boxplot() +
   labs(title = "Acceptability Ratings by F1 and F2",
        x = "NP Structures",
@@ -175,18 +177,10 @@ emmeans(lmer_model_full, pairwise ~ F1_NPforms * F2_matchness, adjust = "bonferr
 
 ## Bayesian regression model:
 ```{r}
-model <- brms::brm(acceptability ~ F1_NPforms * F2_matchness, data = data, sample_prior = "yes", prior = c(brms::prior("normal(0, 100)")))
-brms::hypothesis(model, "informationSourceindirect < 0")
-faintr::compare_groups(model, lower = informationSource == "indirect", higher = informationSource == "direct", include_bf = TRUE)
+brm_full_model <- brm(acceptability ~ F1_NPforms * F2_matchness + (1|submission_id) + (1|itemNr), data = data, sample_prior = "yes", prior = c(brms::prior("normal(0, 100)")))
+
+summary(brm_full_model)
 # posterior predictive checks
-brms::pp_check(model, ndraws = 50)
-```
-Bayesian regression model with reading time
-```{r}
-model_response_time <- brms::brm(update ~ informationSource * responseTime_decision2, data = data, sample_prior = "yes", prior = c(brms::prior("normal(0, 100)")))
-```
-```{r}
-summary(model)
-summary(model_response_time)
+brms::pp_check(brm_full_model, ndraws = 50)
 ```
 
