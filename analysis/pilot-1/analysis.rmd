@@ -147,6 +147,23 @@ data %>%
     N = n()
   )
 ```
+## Show how many false controls are answered correctly.
+```{r}
+false_control_itemNr_list <- c(902,904,906)
+data_filler %>% group_by(itemNr) %>% summarise(mean(acceptability))
+
+# Make a plot with mean and CIs for better visualization
+ggplot(data_filler, aes(x = itemNr, y = acceptability)) +
+  stat_summary(fun.data = mean_cl_normal) +
+  geom_hline(yintercept = 50, linetype = "dashed") +
+  labs(
+    title = "Acceptability Ratings for False Controls \n (902, 904, 906)",
+    x = "Item Number",
+    y = "Acceptability"
+  )
+```
+
+
 
 # Inferential Statistics
 
