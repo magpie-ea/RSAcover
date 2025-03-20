@@ -28,15 +28,7 @@
     <template v-for="(trial, i) in practiceTrials">
       <Screen :key="i"
               :progress="i / practiceTrials.length">
-        <!-- Display trial content (customize as needed) -->
-        <script>
-      console.log("Main Trial Data:", {
-        List: trial.List,
-        itemNr: trial.itemNr,
-        F1_NPforms: trial.F1_NPforms,
-        F2_matchness: trial.F2_matchness
-      });
-    </script>
+
         <img :src="getImagePath(trial.List,trial.itemNr)" />
         <p>{{ trial.linguisticContext }}</p>
             <!-- <br>
@@ -64,7 +56,6 @@
               List: trial.List,
               F1_NPforms: trial.F1_NPforms,
               F2_matchness: trial.F2_matchness,
-              predicate: trial.predicate,
               acceptability: $magpie.measurements.practice,
             }"
           />
@@ -81,11 +72,12 @@
       <Screen
             :key="i"
             :progress="i / mainTrials.length">
+
             <img :src="getImagePath(trial.List,trial.itemNr)" />
 
             {{trial.linguisticContext}}
             <br>
-            <!-- F1 NP: {{trial.F1_NPforms}}
+            F1 NP: {{trial.F1_NPforms}}
             <br>
             F2 matchness: {{trial.F2_matchness}}
             <br>
@@ -93,8 +85,7 @@
             <br>
             Item number: {{trial.itemNr}}
             <br>
-            Groupby: {{trial.Grouped}} -->
-
+            Groupby: {{trial.Grouped}}
 
             <SliderInput
             left="completely unacceptable"
@@ -110,6 +101,7 @@
               F1_NPforms: trial.F1_NPforms,
               F2_matchness: trial.F2_matchness,
               acceptability: $magpie.measurements.acceptability,
+              Predicate: trial.Predicate,
             }"
           />
         </Slide>
@@ -168,7 +160,17 @@ export default {
   methods: {
     getImagePath(list, itemNr) {
       return require(`../pictures/img_l${list}_i${itemNr}.svg`);
-    }
+    },
+    methods: {
+  logTrialData(trial) {
+    console.log("Trial Data:", {
+      List: trial.List,
+      itemNr: trial.itemNr,
+      F1_NPforms: trial.F1_NPforms,
+      F2_matchness: trial.F2_matchness
+    });
+  }
+}
   }
 };
 </script>

@@ -171,10 +171,6 @@ Normality test. (Passed!)
 ```{r}
 # all data
 shapiro.test(data$acceptability)
-# only datqa from the 'direct-source' condition
-#shapiro.test(data |> filter(informationSource == "direct") |> pull(update))
-# only datqa from the 'indirect-source' condition
-#shapiro.test(data |> filter(informationSource == "indirect") |> pull(update))
 ```
 ## Regression with LMER
 ```{r}
