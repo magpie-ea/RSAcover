@@ -13,6 +13,7 @@ jobs:
       matrix:
         folder:
           - experiments/pilot-1
+          - experiments/pilot-1b
 
     runs-on: ubuntu-latest
     steps:
