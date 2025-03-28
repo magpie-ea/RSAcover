@@ -199,7 +199,7 @@ def draw_object(c, objs):
             _.draw_star()
 
 
-def no_overlap(objs, x, y, radius):
+def no_overlap(objs, x, y, radius, scale=1):
     """Checks whether a new obj will have any overlap with an existing
     array of objs.
 
@@ -216,7 +216,7 @@ def no_overlap(objs, x, y, radius):
     radius = radius * 2
     #condition = (x < (obj.x + 2 * radius) and x > (obj.x - 2 * radius)) and (y < (obj.y + 2 * radius) and y > (obj.y - 2 * radius))
     #return all([(x < (obj.x + radius) and x > (obj.x - radius)) and (y < (obj.y - radius) and y > (obj.y + radius)) for obj in objs])
-    return all([(x - obj.x) ** 2 + (y - obj.y) ** 2 > (radius + obj.radius) ** 2
+    return all([(x - obj.x) ** 2 + (y - obj.y) ** 2 > (radius + scale * obj.radius) ** 2
                 for obj in objs])
 
 
@@ -287,7 +287,7 @@ def get_area_controlled_radii(shapes_dict, min_radius, max_radius, std=0.5,
 def scattered_random(objs, area_control=False,
                      total_area=None,
                      num_pixels=(512, 512), padding=20,
-                     min_radius=30, max_radius=40, std=5):
+                     min_radius=30, max_radius=40, std=5, scale=1):
     """Generates ScatteredRandom images: the dots are scattered
     randomly through the image. """
     if area_control:
@@ -305,7 +305,7 @@ def scattered_random(objs, area_control=False,
             x = random.randint(x_min, x_max)
             y = random.randint(y_min, y_max)
             # avoid overlap with existing circles
-            if no_overlap(objs, x, y, radius):
+            if no_overlap(objs, x, y, radius, scale=scale):
                 _.x, _.y, _.radius = x, y, radius
                 new_obj_added = True
     return objs
@@ -394,27 +394,36 @@ def encode_objects(row, matchness = "random", groupby='Color', central_width=100
     number_color2 = int(row['Number2'])
     total_number = number_color1 + number_color2
     if matchness == 'random':
-        objs1 = [Object() for _ in range(number_color1)]
-        objs2 = [Object() for _ in range(number_color2)]
-        objs1 = scattered_random(objs1, num_pixels=(512, 512), padding=50)
-        objs2 = scattered_random(objs2, num_pixels=(512, 512), padding=50)
-        # Distribute colors and shapes
-        for obj in objs1:
-            if random.choice([True, False]):
+        # objs1 = [Object() for _ in range(number_color1)]
+        # objs2 = [Object() for _ in range(number_color2)]
+        # objs1 = scattered_random(objs1, num_pixels=(512, 512), padding=50)
+        # objs2 = scattered_random(objs2, num_pixels=(512, 512), padding=50)
+        # # Distribute colors and shapes
+        # for obj in objs1:
+        #     if random.choice([True, False]):
+        #         obj.color = row['Color1']
+        #         obj.shape = row['Shape1']
+        #     else:
+        #         obj.color = row['Color2']
+        #         obj.shape = row['Shape2']
+        # for obj in objs2:
+        #     obj.x = obj.x + 512 + central_width
+        #     if random.choice([True, False]):
+        #         obj.color = row['Color2']
+        #         obj.shape = row['Shape2']
+        #     else:
+        #         obj.color = row['Color1']
+        #         obj.shape = row['Shape1']
+        # objs = objs1 + objs2
+        objs = [Object() for _ in range(total_number)]
+        objs = scattered_random(objs, num_pixels=(1124, 512), padding=50, scale=2)
+        for i, obj in enumerate(objs):
+            if i < number_color1:
                 obj.color = row['Color1']
                 obj.shape = row['Shape1']
             else:
                 obj.color = row['Color2']
                 obj.shape = row['Shape2']
-        for obj in objs2:
-            obj.x = obj.x + 512 + central_width
-            if random.choice([True, False]):
-                obj.color = row['Color2']
-                obj.shape = row['Shape2']
-            else:
-                obj.color = row['Color1']
-                obj.shape = row['Shape1']
-        objs = objs1 + objs2
     else:
         objs1 = [Object() for _ in range(number_color1)]
         objs2 = [Object() for _ in range(number_color2)]
@@ -436,10 +445,10 @@ quandrant_width = 256
 
 def main():
     # Read csv to retrieve relevant information for generating stimuli
-    file_path = '../experiments/pilot-1/trials/items.csv'
+    file_path = '../trials/items.csv'
     df = pd.read_csv(file_path)
     print(df.head())
-    fillerNr_list = [901, 902, 903, 904, 905, 906]
+    fillerNr_list = list(range(901, 925))
     # Iterate the rows of the dataframe
     for i, row in df.iterrows():
         if row.itemNr not in fillerNr_list:
@@ -448,7 +457,7 @@ def main():
             objs = encode_objects(row, matchness = "random")
 
     # Define a background for drawing the objects
-        filename = "../experiments/pilot-1/pictures/" + 'img_l' + str(row['List']) + '_' + 'i' + str(row['itemNr']) + ".svg"
+        filename = "../pictures/" + 'img_l' + str(row['List']) + '_' + 'i' + str(row['itemNr']) + ".svg"
         sub_window_width = 512
         line_width = 5
         # area in the middle with no objects, set to 100 pixels

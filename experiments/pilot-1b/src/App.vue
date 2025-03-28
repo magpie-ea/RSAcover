@@ -44,6 +44,7 @@
         <SliderInput
           left="completely unacceptable"
           right="completely acceptable"
+          initial= "50"
           :response.sync="$magpie.measurements.practice" />
           {{$magpie.measurements.practice}}
         <button v-if="$magpie.measurements.practice" @click="$magpie.saveAndNextScreen();">
@@ -76,7 +77,7 @@
             <img :src="getImagePath(trial.List,trial.itemNr)" />
 
             {{trial.linguisticContext}}
-            <br>
+            <!-- <br>
             F1 NP: {{trial.F1_NPforms}}
             <br>
             F2 matchness: {{trial.F2_matchness}}
@@ -85,11 +86,12 @@
             <br>
             Item number: {{trial.itemNr}}
             <br>
-            Groupby: {{trial.Grouped}}
+            Groupby: {{trial.Grouped}} -->
 
             <SliderInput
             left="completely unacceptable"
             right="completely acceptable"
+            initial= "50"
             :response.sync= "$magpie.measurements.acceptability" />
             {{$magpie.measurements.acceptability}}
             <button v-if="$magpie.measurements.acceptability" @click="$magpie.saveAndNextScreen();">Submit</button>
