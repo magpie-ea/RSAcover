@@ -8,3 +8,8 @@
 6. Remove the predicate "grouped" and only keep "separeted.".
 7. Adjust the logic of -filler to make sure this can serve as a control condition.
 8. Change initial to 50.
+
+# Changes from Pilot 1b to 1c
+
+1. Change predicate in experimental items from separated to grouped.
+2. Change several -filler items in 901-906 to make sure they are false.
