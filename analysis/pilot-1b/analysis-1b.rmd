@@ -25,6 +25,7 @@ library(pwr)
 library(brms)
 library(emmeans)
 library(effsize)
+library(ggpubr)
 library(HDInterval)
 ```
 
@@ -120,17 +121,41 @@ ggplot(data, aes(x = acceptability)) +
 
 ```
 
+
 ## Boxplot of Probabilities by Information Source and Decision Type
 
 ```{r}
+# Define the positions and significance levels
+sig_df <- data.frame(
+  group1 = c("part_-match", "part_random", "sum_-match", "sum_+match"),
+  group2 = c("part_+match", "part_+match", "sum_random", "sum_random"),
+  y.position = c(105, 110, 105, 110),  # adjust based on your data
+  significance = c("***", "***", "***", "***")
+)
 
-p1 <- ggplot(data, aes(x = F1_NPforms, y = acceptability, fill = F2_matchness)) +
-  geom_boxplot() +
-  labs(
-       x = "NP Structures",
-       y = "Acceptability")
+my_comparisons <- list( c("0.5", "1"), c("1", "2"), c("0.5", "2") )
 
-ggsave("fig1.png", p1, width = 6, height = 4, dpi = 300)
+data$condition <- paste(data$F1_NPforms, data$F2_matchness, sep = "_")
+
+```
+
+```{r}
+
+library(ggplot2)
+
+
+
+
+data$condition <- paste(data$F1_NPforms, data$F2_matchness, sep = "_")
+
+p1 <- ggplot(data, aes(x = condition, y = acceptability)) +
+  geom_boxplot(aes(fill = F2_matchness)) +
+  labs(x = "NP Structures", y = "Acceptability") +
+  stat_pvalue_manual(sig_df, label = "significance", tip.length = 0.01)
+
+
+
+#ggsave("fig1.png", p1, width = 6, height = 4, dpi = 300)
 
 p1
 ```
@@ -159,6 +184,9 @@ ggplot(data_filler, aes(x = F1_NPforms, y = acceptability)) +
     x = "Item Number",
     y = "Acceptability"
   )
+
+# Show mean of false filler
+data_filler %>% group_by(F1_NPforms) %>% summarise(mean(acceptability))
 ```
 
 
@@ -187,6 +215,17 @@ summary(lmer_model_full)
 Post-hoc tests
 ```{r}
 emmeans(lmer_model_full, pairwise ~ F1_NPforms * F2_matchness, adjust = "bonferroni")
+```
+```{r}
+# Compare sum random with 50
+data_sum_random <- data %>% filter(F1_NPforms == "sum" & F2_matchness == "random")
+data_part_random <- data %>% filter(F1_NPforms == "part" & F2_matchness == "random")
+data_part_Nmatch <- data %>% filter(F1_NPforms == "part" & F2_matchness == "-match")
+
+t.test(data_sum_random$acceptability, mu = 50, alternative = "greater")
+t.test(data_part_random$acceptability, mu = 50, alternative = "greater")
+t.test(data_part_Nmatch$acceptability, mu = 50, alternative = "greater")
+
 ```
 
 
