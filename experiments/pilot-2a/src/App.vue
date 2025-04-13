@@ -131,7 +131,7 @@ export default {
   data() {
     return {
       // Choose a random list between 1 and 6 (computed once at creation)
-      randomList: _.sample([1, 2, 3, 4, 5, 6]),
+      randomList: _.sample([1, 2, 3]),
       // Manual mode toggle and manual list value (null means no override)
       manualMode: false,
       manualList: null
