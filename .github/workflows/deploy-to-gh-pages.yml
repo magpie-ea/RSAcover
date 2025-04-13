@@ -14,7 +14,8 @@ jobs:
         folder:
           - experiments/pilot-1
           - experiments/pilot-1b
-          - experiments/pilot-2
+          - experiments/pilot-2a
+          - experiments/pilot-2b
 
     runs-on: ubuntu-latest
     steps:
