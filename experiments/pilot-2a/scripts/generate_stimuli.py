@@ -319,9 +319,9 @@ def main():
 
     # Generate the scatter plots
     df = generate_cluster_with_alternative(df,
-                                       min_dots=12, max_dots=20,
-                                       alt_min=5, alt_max=10,
-                                       spread=0.5, radius=12,
+                                       min_dots=12, max_dots=16,
+                                       alt_min=6, alt_max=8,
+                                       spread=0.5, radius=13,
                                        padding=0.8,
                                        canvas_size=5, screen_size=5)
     
