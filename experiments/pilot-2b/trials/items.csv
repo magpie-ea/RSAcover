@@ -1,154 +1,307 @@
 List,itemNr,F1_NP,F2_visual,Grouped,Predicate,alternative,linguisticContext,Color1,Color2,Shape1,Shape2,Number1,Number2,Color3,color_entropy,spatial_entropy,is_filler
-1,1,definiteP,notGrouped,Color,grouped,no,The diamonds are grouped.,brown,blue,diamonds,,4,3,,0.9182958340544894,1.9182958340544896,no
-2,2,definiteP,colorGrouped,Color,grouped,no,The squares are grouped.,blue,grey,squares,,5,5,,0.9940302114769566,3.095795255000934,no
-3,3,definiteP,randomGrouped,Color,grouped,no,The squares are grouped.,purple,green,squares,,4,3,,0.9182958340544894,2.855388542207534,no
-2,4,definiteP,notGrouped,Color,grouped,no,The stars are grouped.,blue,orange,stars,,5,5,,0.9709505944546688,2.3219280948873626,no
-3,5,definiteP,colorGrouped,Color,grouped,no,The circles are grouped.,brown,purple,circles,,4,3,,0.9940302114769566,2.913977073182752,no
-1,6,definiteP,randomGrouped,Color,grouped,no,The squares are grouped.,blue,purple,squares,,3,5,,0.7793498372920851,3.0269868333592864,no
-3,7,definiteP,notGrouped,Color,grouped,no,The circles are grouped.,blue,grey,circles,,5,4,,0.9852281360342515,2.521640636343319,no
-2,8,definiteP,colorGrouped,Color,grouped,no,The stars are grouped.,blue,purple,stars,,4,5,,1.0,3.3787834934861762,no
-1,9,definiteP,randomGrouped,Color,grouped,no,The triangles are grouped.,grey,brown,triangles,,3,4,,0.8631205685666311,2.896291529045928,no
-1,10,definiteP,notGrouped,Color,grouped,no,The squares are grouped.,grey,brown,squares,,3,5,,0.9709505944546688,2.3219280948873626,no
-2,11,definiteP,colorGrouped,Color,grouped,no,The stars are grouped.,purple,green,stars,,5,5,,1.0,3.2516291673878235,no
-3,12,definiteP,randomGrouped,Color,grouped,no,The circles are grouped.,blue,purple,circles,,5,4,,0.8631205685666311,3.3248629576173565,no
-2,13,definiteP,notGrouped,Color,grouped,no,The triangles are grouped.,purple,orange,triangles,,3,3,,0.9182958340544894,2.251629167387823,no
-3,14,definiteP,colorGrouped,Color,grouped,no,The squares are grouped.,purple,green,squares,,3,4,,1.0,2.9219280948873627,no
-1,15,definiteP,randomGrouped,Color,grouped,no,The stars are grouped.,red,grey,stars,,5,5,,1.0,2.6464393446710153,no
-3,16,definiteP,notGrouped,Color,grouped,no,The squares are grouped.,yellow,purple,squares,,3,3,,0.9852281360342515,2.521640636343318,no
-2,17,definiteP,colorGrouped,Color,grouped,no,The crosses are grouped.,grey,green,crosses,,4,3,,1.0,3.2516291673878226,no
-1,18,definiteP,randomGrouped,Color,grouped,no,The squares are grouped.,red,brown,squares,,4,4,,0.9709505944546688,3.321928094887362,no
-1,19,definiteP,notGrouped,Color,grouped,no,The squares are grouped.,red,green,squares,,5,5,,0.6500224216483541,2.251629167387823,no
-2,20,definiteP,colorGrouped,Color,grouped,no,The stars are grouped.,purple,brown,stars,,4,4,,0.9940302114769566,3.277613436819116,no
-3,21,definiteP,randomGrouped,Color,grouped,no,The circles are grouped.,red,green,circles,,3,5,,1.0,2.7219280948873625,no
-2,22,definiteP,notGrouped,Color,grouped,no,The diamonds are grouped.,brown,grey,diamonds,,4,3,,0.9709505944546688,2.3219280948873626,no
-3,23,definiteP,colorGrouped,Color,grouped,no,The circles are grouped.,brown,yellow,circles,,4,4,,1.0,2.855388542207534,no
-1,24,definiteP,randomGrouped,Color,grouped,no,The diamonds are grouped.,grey,orange,diamonds,,3,4,,0.9709505944546688,3.121928094887363,no
-3,25,definiteP,notGrouped,Color,grouped,no,The squares are grouped.,green,brown,squares,,4,5,,0.9182958340544894,2.2516291673878226,no
-2,26,definiteP,colorGrouped,Color,grouped,no,The diamonds are grouped.,brown,yellow,diamonds,,3,5,,1.0,3.084962500721156,no
-1,27,definiteP,randomGrouped,Color,grouped,no,The squares are grouped.,brown,orange,squares,,5,3,,0.8812908992306927,3.121928094887363,no
-1,28,definiteP,notGrouped,Color,grouped,no,The circles are grouped.,purple,grey,circles,,3,3,,0.6500224216483541,2.251629167387823,no
-2,29,definiteP,colorGrouped,Color,grouped,no,The squares are grouped.,yellow,purple,squares,,5,3,,1.0,3.521640636343318,no
-3,30,definiteP,randomGrouped,Color,grouped,no,The squares are grouped.,grey,purple,squares,,3,5,,0.9456603046006401,3.095795255000934,no
-2,31,definiteP,notGrouped,Color,grouped,no,The stars are grouped.,green,blue,stars,,4,5,,0.9182958340544894,2.251629167387823,no
-3,32,definiteP,colorGrouped,Color,grouped,no,The triangles are grouped.,orange,green,triangles,,5,5,,1.0,2.9219280948873627,no
-1,33,definiteP,randomGrouped,Color,grouped,no,The crosses are grouped.,yellow,brown,crosses,,5,5,,1.0,3.3787834934861753,no
-3,34,definiteP,notGrouped,Color,grouped,no,The triangles are grouped.,yellow,purple,triangles,,4,4,,0.6500224216483541,2.584962500721156,no
-2,35,definiteP,colorGrouped,Color,grouped,no,The squares are grouped.,brown,red,squares,,5,3,,0.9957274520849256,2.4493118330264454,no
-1,36,definiteP,randomGrouped,Color,grouped,no,The diamonds are grouped.,purple,orange,diamonds,,4,5,,0.74959525725948,3.235926350629033,no
-1,37,definiteP,notGrouped,Shape,grouped,no,The squares are grouped.,blue,brown,squares,,5,5,,1.0,2.251629167387823,no
-2,38,definiteP,colorGrouped,Shape,grouped,no,The triangles are grouped.,brown,purple,triangles,,4,3,,0.9940302114769566,2.9139770731827523,no
-3,39,definiteP,randomGrouped,Shape,grouped,no,The triangles are grouped.,brown,blue,triangles,,4,5,,0.9940302114769566,2.913977073182752,no
-2,40,definiteP,notGrouped,Shape,grouped,no,The crosses are grouped.,purple,grey,crosses,,5,5,,0.9182958340544894,2.584962500721156,no
-3,41,definiteP,colorGrouped,Shape,grouped,no,The triangles are grouped.,red,grey,triangles,,4,3,,0.9940302114769566,2.7321588913645702,no
-1,42,definiteP,randomGrouped,Shape,grouped,no,The triangles are grouped.,grey,purple,triangles,,4,5,,0.9798687566511527,3.41829583405449,no
-3,43,definiteP,notGrouped,Shape,grouped,no,The stars are grouped.,orange,grey,stars,,3,3,,0.9709505944546688,2.3219280948873626,no
-2,44,definiteP,colorGrouped,Shape,grouped,no,The crosses are grouped.,red,green,crosses,,3,4,,0.9957274520849256,3.5465935642949393,no
-1,45,definiteP,randomGrouped,Shape,grouped,no,The squares are grouped.,orange,yellow,squares,,4,3,,0.9957274520849256,3.238901256602631,no
-1,46,definiteP,notGrouped,Shape,grouped,no,The stars are grouped.,purple,green,stars,,3,3,,1.0,2.584962500721156,no
-2,47,definiteP,colorGrouped,Shape,grouped,no,The diamonds are grouped.,green,grey,diamonds,,4,4,,1.0,2.9219280948873627,no
-3,48,definiteP,randomGrouped,Shape,grouped,no,The diamonds are grouped.,purple,grey,diamonds,,4,5,,0.9798687566511527,3.0220552088742005,no
-2,49,definiteP,notGrouped,Shape,grouped,no,The triangles are grouped.,orange,green,triangles,,3,5,,0.7219280948873623,2.3219280948873626,no
-3,50,definiteP,colorGrouped,Shape,grouped,no,The stars are grouped.,purple,orange,stars,,3,4,,0.9940302114769566,3.277613436819116,no
-1,51,definiteP,randomGrouped,Shape,grouped,no,The crosses are grouped.,grey,green,crosses,,4,5,,0.8453509366224364,3.095795255000934,no
-3,52,definiteP,notGrouped,Shape,grouped,no,The crosses are grouped.,orange,red,crosses,,4,5,,0.9709505944546688,2.3219280948873626,no
-2,53,definiteP,colorGrouped,Shape,grouped,no,The stars are grouped.,brown,orange,stars,,3,3,,1.0,3.3787834934861753,no
-1,54,definiteP,randomGrouped,Shape,grouped,no,The circles are grouped.,grey,green,circles,,5,3,,0.9798687566511527,3.084962500721156,no
-1,55,definiteP,notGrouped,Shape,grouped,no,The stars are grouped.,yellow,grey,stars,,3,5,,0.9852281360342515,2.128085278891394,no
-2,56,definiteP,colorGrouped,Shape,grouped,no,The squares are grouped.,grey,blue,squares,,4,4,,1.0,2.6464393446710157,no
-3,57,definiteP,randomGrouped,Shape,grouped,no,The squares are grouped.,red,orange,squares,,5,3,,0.961236604722876,2.873140679513133,no
-2,58,definiteP,notGrouped,Shape,grouped,no,The circles are grouped.,brown,grey,circles,,3,5,,0.9709505944546688,1.370950594454669,no
-3,59,definiteP,colorGrouped,Shape,grouped,no,The stars are grouped.,brown,purple,stars,,5,4,,1.0,2.7219280948873625,no
-1,60,definiteP,randomGrouped,Shape,grouped,no,The squares are grouped.,grey,blue,squares,,3,3,,0.9940302114769566,3.095795255000934,no
-3,61,definiteP,notGrouped,Shape,grouped,no,The circles are grouped.,grey,red,circles,,5,4,,0.9852281360342515,2.1280852788913944,no
-2,62,definiteP,colorGrouped,Shape,grouped,no,The diamonds are grouped.,yellow,orange,diamonds,,3,5,,0.9957274520849256,3.0269868333592873,no
-1,63,definiteP,randomGrouped,Shape,grouped,no,The squares are grouped.,yellow,brown,squares,,4,4,,0.940285958670631,3.1820058147602137,no
-1,64,definiteP,notGrouped,Shape,grouped,no,The triangles are grouped.,red,purple,triangles,,4,5,,0.9709505944546688,1.9219280948873625,no
-2,65,definiteP,colorGrouped,Shape,grouped,no,The triangles are grouped.,grey,green,triangles,,5,5,,1.0,2.6464393446710157,no
-3,66,definiteP,randomGrouped,Shape,grouped,no,The stars are grouped.,purple,red,stars,,3,4,,0.9798687566511527,3.2516291673878235,no
-2,67,definiteP,notGrouped,Shape,grouped,no,The circles are grouped.,blue,orange,circles,,5,3,,0.7219280948873623,2.3219280948873626,no
-3,68,definiteP,colorGrouped,Shape,grouped,no,The crosses are grouped.,brown,grey,crosses,,4,4,,1.0,3.084962500721156,no
-1,69,definiteP,randomGrouped,Shape,grouped,no,The crosses are grouped.,orange,red,crosses,,3,5,,0.8812908992306927,2.6464393446710157,no
-3,70,definiteP,notGrouped,Shape,grouped,no,The stars are grouped.,grey,yellow,stars,,5,4,,0.9182958340544894,2.251629167387823,no
-2,71,definiteP,colorGrouped,Shape,grouped,no,The diamonds are grouped.,purple,brown,diamonds,,3,5,,1.0,2.8464393446710154,no
-1,72,definiteP,randomGrouped,Shape,grouped,no,The crosses are grouped.,orange,yellow,crosses,,4,4,,0.940285958670631,2.9502120649147474,no
-1,901,all,notGrouped,Shape,grouped,no,All of the diamonds are blue.,blue,blue,diamonds,,5,5,,0.0,1.5219280948873626,yes_true
-2,902,some,notGrouped,Color,grouped,no,Some of the crosses are blue.,blue,purple,crosses,,3,5,,0.9852281360342515,2.2359263506290334,yes_true
-3,903,all,notGrouped,Shape,grouped,no,All of the crosses are yellow.,yellow,yellow,crosses,,4,4,,0.0,2.3219280948873626,yes_true
-2,904,some,notGrouped,Color,grouped,no,Some of the stars are brown.,brown,green,stars,,5,3,,0.7219280948873623,2.3219280948873626,yes_true
-3,905,all,notGrouped,Shape,grouped,no,All of the diamonds are red.,red,red,diamonds,,3,4,,0.0,2.584962500721156,yes_true
-1,906,some,notGrouped,Color,grouped,no,Some of the squares are green.,green,red,squares,,4,5,,0.0,1.9219280948873625,yes_true
-3,907,all,notGrouped,Shape,grouped,no,All of the triangles are red.,red,red,triangles,,5,5,,0.0,2.251629167387823,yes_true
-2,908,some,notGrouped,Color,grouped,no,Some of the crosses are red.,red,orange,crosses,,3,5,,0.9182958340544894,2.251629167387823,yes_true
-1,909,all,notGrouped,Shape,grouped,no,All of the squares are green.,green,green,squares,,4,4,,0.0,2.584962500721156,yes_true
-1,910,some,notGrouped,Color,grouped,no,Some of the circles are yellow.,yellow,purple,circles,,5,3,,0.9852281360342515,2.521640636343319,yes_true
-2,911,all,notGrouped,Shape,grouped,no,All of the crosses are orange.,orange,orange,crosses,,3,4,,0.0,2.807354922057605,yes_true
-3,912,some,notGrouped,Color,grouped,no,Some of the stars are orange.,orange,blue,stars,,4,5,,1.0,2.251629167387823,yes_true
-2,913,all,notGrouped,Shape,grouped,no,All of the diamonds are brown.,grey,grey,diamonds,,5,5,,0.0,1.8423709931771088,yes_false
-3,914,some,notGrouped,Color,grouped,no,Some of the stars are red.,blue,blue,stars,,3,5,,0.0,1.9219280948873625,yes_false
-1,915,all,notGrouped,Shape,grouped,no,All of the squares are grey.,brown,brown,squares,,4,4,,0.0,2.521640636343319,yes_false
-3,916,some,notGrouped,Color,grouped,no,Some of the triangles are red.,orange,orange,triangles,,5,3,,0.0,2.521640636343319,yes_false
-2,917,all,notGrouped,Shape,grouped,no,All of the circles are orange.,grey,grey,circles,,3,4,,0.0,2.3219280948873626,yes_false
-1,918,some,notGrouped,Color,grouped,no,Some of the triangles are brown.,yellow,yellow,triangles,,4,5,,0.0,2.584962500721156,yes_false
-1,919,all,notGrouped,Shape,grouped,no,All of the squares are yellow.,green,green,squares,,5,5,,0.0,2.3219280948873626,yes_false
-2,920,some,notGrouped,Color,grouped,no,Some of the squares are green.,grey,grey,squares,,3,5,,0.0,2.251629167387823,yes_false
-3,921,all,notGrouped,Shape,grouped,no,All of the crosses are orange.,blue,blue,crosses,,4,4,,0.0,2.235926350629033,yes_false
-2,922,some,notGrouped,Color,grouped,no,Some of the circles are purple.,blue,blue,circles,,5,3,,0.0,2.251629167387823,yes_false
-3,923,all,notGrouped,Shape,grouped,no,All of the diamonds are purple.,orange,orange,diamonds,,3,4,,0.0,2.3219280948873626,yes_false
-1,924,some,notGrouped,Color,grouped,no,Some of the triangles are grey.,yellow,yellow,triangles,,4,5,,0.0,1.9219280948873625,yes_false
-3,801,definiteP,colorGrouped,Shape,grouped,no,The triangles are grouped.,yellow,brown,triangles,,3,4,,0.9940302114769566,3.4594316186372978,no
-2,802,definiteP,notGrouped,Color,grouped,no,The squares are grouped.,blue,purple,squares,,4,3,,0.9709505944546688,1.9219280948873625,no
-1,803,definiteP,randomGrouped,Shape,grouped,no,The triangles are grouped.,blue,green,triangles,,5,4,,0.940285958670631,3.3787834934861753,no
-1,901,all,notGrouped,Shape,grouped,no,All of the diamonds are orange.,orange,orange,diamonds,,5,5,,0.0,2.521640636343319,yes_true
-2,902,some,notGrouped,Color,grouped,no,Some of the squares are red.,red,blue,squares,,3,5,,0.9709505944546688,1.9219280948873625,yes_true
-3,903,all,notGrouped,Shape,grouped,no,All of the circles are green.,green,green,circles,,4,4,,0.0,2.251629167387823,yes_true
-2,904,some,notGrouped,Color,grouped,no,Some of the stars are brown.,brown,red,stars,,5,3,,0.5916727785823274,2.128085278891394,yes_true
-3,905,all,notGrouped,Shape,grouped,no,All of the circles are yellow.,yellow,yellow,circles,,3,4,,0.0,2.235926350629033,yes_true
-1,906,some,notGrouped,Color,grouped,no,Some of the squares are green.,green,red,squares,,4,5,,0.9182958340544894,2.584962500721156,yes_true
-3,907,all,notGrouped,Shape,grouped,no,All of the triangles are blue.,blue,blue,triangles,,5,5,,0.0,1.9219280948873625,yes_true
-2,908,some,notGrouped,Color,grouped,no,Some of the diamonds are brown.,brown,blue,diamonds,,3,5,,0.6500224216483541,2.251629167387823,yes_true
-1,909,all,notGrouped,Shape,grouped,no,All of the crosses are blue.,blue,blue,crosses,,4,4,,0.0,2.251629167387823,yes_true
-1,910,some,notGrouped,Color,grouped,no,Some of the squares are brown.,brown,blue,squares,,5,3,,0.7219280948873623,1.9219280948873625,yes_true
-2,911,all,notGrouped,Shape,grouped,no,All of the diamonds are yellow.,yellow,yellow,diamonds,,3,4,,0.0,2.584962500721156,yes_true
-3,912,some,notGrouped,Color,grouped,no,Some of the stars are yellow.,yellow,grey,stars,,4,5,,0.9182958340544894,2.251629167387823,yes_true
-2,913,all,notGrouped,Shape,grouped,no,All of the triangles are green.,yellow,yellow,triangles,,5,5,,0.0,2.584962500721156,yes_false
-3,914,some,notGrouped,Color,grouped,no,Some of the diamonds are red.,purple,purple,diamonds,,3,5,,0.0,2.584962500721156,yes_false
-1,915,all,notGrouped,Shape,grouped,no,All of the diamonds are grey.,yellow,yellow,diamonds,,4,4,,0.0,2.584962500721156,yes_false
-3,916,some,notGrouped,Color,grouped,no,Some of the squares are yellow.,red,red,squares,,5,3,,0.0,2.3219280948873626,yes_false
-2,917,all,notGrouped,Shape,grouped,no,All of the stars are yellow.,brown,brown,stars,,3,4,,0.0,1.9219280948873625,yes_false
-1,918,some,notGrouped,Color,grouped,no,Some of the circles are red.,yellow,yellow,circles,,4,5,,0.0,1.9219280948873625,yes_false
-1,919,all,notGrouped,Shape,grouped,no,All of the circles are yellow.,red,red,circles,,5,5,,0.0,2.584962500721156,yes_false
-2,920,some,notGrouped,Color,grouped,no,Some of the triangles are yellow.,red,red,triangles,,3,5,,0.0,2.3219280948873626,yes_false
-3,921,all,notGrouped,Shape,grouped,no,All of the circles are brown.,green,green,circles,,4,4,,0.0,2.3219280948873626,yes_false
-2,922,some,notGrouped,Color,grouped,no,Some of the triangles are green.,orange,orange,triangles,,5,3,,0.0,2.3219280948873626,yes_false
-3,923,all,notGrouped,Shape,grouped,no,All of the squares are blue.,brown,brown,squares,,3,4,,0.0,2.251629167387823,yes_false
-1,924,some,notGrouped,Color,grouped,no,Some of the circles are purple.,green,green,circles,,4,5,,0.0,1.370950594454669,yes_false
-3,801,definiteP,colorGrouped,Shape,grouped,no,The triangles are grouped.,orange,green,triangles,,3,4,,0.9940302114769566,3.095795255000934,no
-2,802,definiteP,notGrouped,Color,grouped,no,The squares are grouped.,red,brown,squares,,4,3,,1.0,2.251629167387823,no
-1,803,definiteP,randomGrouped,Shape,grouped,no,The triangles are grouped.,blue,red,triangles,,5,4,,0.9852281360342515,3.039148671903071,no
-1,901,all,notGrouped,Shape,grouped,no,All of the circles are orange.,orange,orange,circles,,5,5,,0.0,2.584962500721156,yes_true
-2,902,some,notGrouped,Color,grouped,no,Some of the crosses are grey.,grey,purple,crosses,,3,5,,0.9709505944546688,1.9219280948873625,yes_true
-3,903,all,notGrouped,Shape,grouped,no,All of the triangles are blue.,blue,blue,triangles,,4,4,,0.0,2.584962500721156,yes_true
-2,904,some,notGrouped,Color,grouped,no,Some of the triangles are purple.,purple,grey,triangles,,5,3,,0.9709505944546688,1.370950594454669,yes_true
-3,905,all,notGrouped,Shape,grouped,no,All of the diamonds are purple.,purple,purple,diamonds,,3,4,,0.0,2.1280852788913944,yes_true
-1,906,some,notGrouped,Color,grouped,no,Some of the squares are grey.,grey,brown,squares,,4,5,,0.9182958340544894,1.7924812503605783,yes_true
-3,907,all,notGrouped,Shape,grouped,no,All of the squares are orange.,orange,orange,squares,,5,5,,0.0,2.3219280948873626,yes_true
-2,908,some,notGrouped,Color,grouped,no,Some of the circles are purple.,purple,grey,circles,,3,5,,0.9182958340544894,2.251629167387823,yes_true
-1,909,all,notGrouped,Shape,grouped,no,All of the diamonds are grey.,grey,grey,diamonds,,4,4,,0.0,2.2359263506290326,yes_true
-1,910,some,notGrouped,Color,grouped,no,Some of the diamonds are blue.,blue,brown,diamonds,,5,3,,0.9182958340544894,2.584962500721156,yes_true
-2,911,all,notGrouped,Shape,grouped,no,All of the stars are purple.,purple,purple,stars,,3,4,,0.0,1.9219280948873625,yes_true
-3,912,some,notGrouped,Color,grouped,no,Some of the crosses are orange.,orange,purple,crosses,,4,5,,0.9182958340544894,1.9182958340544896,yes_true
-2,913,all,notGrouped,Shape,grouped,no,All of the crosses are orange.,yellow,yellow,crosses,,5,5,,0.0,1.459147917027245,yes_false
-3,914,some,notGrouped,Color,grouped,no,Some of the crosses are purple.,blue,blue,crosses,,3,5,,0.0,2.584962500721156,yes_false
-1,915,all,notGrouped,Shape,grouped,no,All of the stars are yellow.,brown,brown,stars,,4,4,,0.0,2.3219280948873626,yes_false
-3,916,some,notGrouped,Color,grouped,no,Some of the triangles are purple.,yellow,yellow,triangles,,5,3,,0.0,1.9182958340544896,yes_false
-2,917,all,notGrouped,Shape,grouped,no,All of the diamonds are green.,yellow,yellow,diamonds,,3,4,,0.0,1.9182958340544896,yes_false
-1,918,some,notGrouped,Color,grouped,no,Some of the crosses are grey.,blue,blue,crosses,,4,5,,0.0,2.2516291673878226,yes_false
-1,919,all,notGrouped,Shape,grouped,no,All of the diamonds are blue.,orange,orange,diamonds,,5,5,,0.0,2.251629167387823,yes_false
-2,920,some,notGrouped,Color,grouped,no,Some of the triangles are grey.,red,red,triangles,,3,5,,0.0,2.3219280948873626,yes_false
-3,921,all,notGrouped,Shape,grouped,no,All of the diamonds are brown.,red,red,diamonds,,4,4,,0.0,1.9182958340544896,yes_false
-2,922,some,notGrouped,Color,grouped,no,Some of the squares are brown.,purple,purple,squares,,5,3,,0.0,2.251629167387823,yes_false
-3,923,all,notGrouped,Shape,grouped,no,All of the squares are orange.,red,red,squares,,3,4,,0.0,2.584962500721156,yes_false
-1,924,some,notGrouped,Color,grouped,no,Some of the stars are purple.,orange,orange,stars,,4,5,,0.0,1.9219280948873625,yes_false
-3,801,definiteP,colorGrouped,Shape,grouped,no,The circles are grouped.,purple,orange,circles,,3,4,,0.9957274520849256,3.238901256602631,no
-2,802,definiteP,notGrouped,Color,grouped,no,The triangles are grouped.,purple,green,triangles,,4,3,,0.9852281360342515,2.235926350629033,no
-1,803,definiteP,randomGrouped,Shape,grouped,no,The squares are grouped.,grey,purple,squares,,5,4,,0.9957274520849256,2.931208948910323,no
+1,1,conjunction,notGrouped,Color,grouped,yes,The grey crosses and the purple crosses are grouped.,grey,purple,crosses,stars,4,3,green,1.5128876215181606,3.4219280948873623,no
+2,2,conjunction,colorGrouped,Color,grouped,yes,The blue diamonds and the red diamonds are grouped.,blue,red,diamonds,crosses,5,5,purple,1.584962500721156,3.6897037321995474,no
+3,3,conjunction,randomGrouped,Color,grouped,yes,The red crosses and the green crosses are grouped.,red,green,crosses,squares,4,3,brown,1.5812908992306927,3.6841837197791882,no
+4,4,conjunction,notGrouped,Color,grouped,yes,The purple squares and the brown squares are grouped.,purple,brown,squares,triangles,5,5,orange,1.561278124459133,3.25,no
+5,5,conjunction,colorGrouped,Color,grouped,yes,The green crosses and the brown crosses are grouped.,green,brown,crosses,stars,4,3,blue,1.5810309627563697,3.2210972500579573,no
+6,6,conjunction,randomGrouped,Color,grouped,yes,The brown stars and the red stars are grouped.,brown,red,stars,circles,3,5,yellow,1.546631615393778,3.8365916681089787,no
+2,7,conjunction,notGrouped,Color,grouped,yes,The orange circles and the purple circles are grouped.,orange,purple,circles,stars,5,4,green,1.5574319619297043,3.2210972500579573,no
+3,8,conjunction,colorGrouped,Color,grouped,yes,The blue crosses and the orange crosses are grouped.,blue,orange,crosses,circles,4,5,purple,1.5810309627563697,3.47135448701393,no
+4,9,conjunction,randomGrouped,Color,grouped,yes,The brown circles and the grey circles are grouped.,brown,grey,circles,diamonds,3,4,red,1.4836591643979626,3.6168746059562227,no
+5,10,conjunction,notGrouped,Color,grouped,yes,The red triangles and the brown triangles are grouped.,red,brown,triangles,squares,3,5,grey,1.568316493272887,3.616348566075165,no
+6,11,conjunction,colorGrouped,Color,grouped,yes,The orange triangles and the yellow triangles are grouped.,orange,yellow,triangles,stars,5,5,red,1.5812908992306927,3.8219280948873617,no
+1,12,conjunction,randomGrouped,Color,grouped,yes,The red crosses and the grey crosses are grouped.,red,grey,crosses,squares,5,4,orange,1.584962500721156,3.5944656369614525,no
+3,13,conjunction,notGrouped,Color,grouped,yes,The yellow circles and the blue circles are grouped.,yellow,blue,circles,triangles,3,3,purple,1.5656531116458188,3.2195282822995477,no
+4,14,conjunction,colorGrouped,Color,grouped,yes,The green triangles and the grey triangles are grouped.,green,grey,triangles,crosses,3,4,blue,1.5798634010685344,3.6168746059562227,no
+5,15,conjunction,randomGrouped,Color,grouped,yes,The brown diamonds and the blue diamonds are grouped.,brown,blue,diamonds,circles,5,5,green,1.565596230357602,3.1068905956085193,no
+6,16,conjunction,notGrouped,Color,grouped,yes,The red stars and the blue stars are grouped.,red,blue,stars,triangles,3,3,grey,1.5794340029249652,3.1556390622295662,no
+1,17,conjunction,colorGrouped,Color,grouped,yes,The red circles and the yellow circles are grouped.,red,yellow,circles,stars,4,3,grey,1.584962500721156,3.506890595608519,no
+2,18,conjunction,randomGrouped,Color,grouped,yes,The grey crosses and the green crosses are grouped.,grey,green,crosses,triangles,4,4,yellow,1.5715416718219246,3.4613201402110083,no
+4,19,conjunction,notGrouped,Color,grouped,yes,The yellow circles and the purple circles are grouped.,yellow,purple,circles,diamonds,5,5,green,1.5243166733459839,2.9258530145612833,no
+5,20,conjunction,colorGrouped,Color,grouped,yes,The yellow circles and the brown circles are grouped.,yellow,brown,circles,triangles,4,4,red,1.5794340029249652,3.6249999999999996,no
+6,21,conjunction,randomGrouped,Color,grouped,yes,The brown stars and the blue stars are grouped.,brown,blue,stars,triangles,3,5,red,1.5812908992306927,3.6841837197791882,no
+1,22,conjunction,notGrouped,Color,grouped,yes,The orange stars and the brown stars are grouped.,orange,brown,stars,crosses,4,3,purple,1.5612781244591325,3.452819531114783,no
+2,23,conjunction,colorGrouped,Color,grouped,yes,The brown circles and the orange circles are grouped.,brown,orange,circles,stars,4,4,red,1.5794340029249652,3.8750000000000004,no
+3,24,conjunction,randomGrouped,Color,grouped,yes,The red triangles and the blue triangles are grouped.,red,blue,triangles,circles,3,4,green,1.5656531116458188,3.4992275471326932,no
+5,25,conjunction,notGrouped,Color,grouped,yes,The red triangles and the orange triangles are grouped.,red,orange,triangles,stars,4,5,purple,1.568316493272887,3.471354487013929,no
+6,26,conjunction,colorGrouped,Color,grouped,yes,The blue triangles and the orange triangles are grouped.,blue,orange,triangles,squares,3,5,grey,1.584962500721156,3.9754180179138334,no
+1,27,conjunction,randomGrouped,Color,grouped,yes,The green crosses and the blue crosses are grouped.,green,blue,crosses,triangles,5,3,orange,1.546631615393778,3.4613201402110083,no
+2,28,conjunction,notGrouped,Color,grouped,yes,The yellow stars and the brown stars are grouped.,yellow,brown,stars,circles,3,3,red,1.565596230357602,3.056564762130954,no
+3,29,conjunction,colorGrouped,Color,grouped,yes,The grey diamonds and the red diamonds are grouped.,grey,red,diamonds,crosses,5,3,yellow,1.584962500721156,3.9477027792200907,no
+4,30,conjunction,randomGrouped,Color,grouped,yes,The orange squares and the grey squares are grouped.,orange,grey,squares,crosses,3,5,red,1.584962500721156,3.506890595608519,no
+6,31,conjunction,notGrouped,Color,grouped,yes,The purple diamonds and the brown diamonds are grouped.,purple,brown,diamonds,stars,4,5,green,1.5485652260309177,3.2639334294856335,no
+1,32,conjunction,colorGrouped,Color,grouped,yes,The green diamonds and the grey diamonds are grouped.,green,grey,diamonds,crosses,5,5,orange,1.5812908992306927,3.8219280948873617,no
+2,33,conjunction,randomGrouped,Color,grouped,yes,The purple crosses and the green crosses are grouped.,purple,green,crosses,circles,5,5,brown,1.5485652260309177,3.734521664779752,no
+3,34,conjunction,notGrouped,Color,grouped,yes,The yellow stars and the green stars are grouped.,yellow,green,stars,diamonds,4,4,purple,1.557431961929704,3.300559092390954,no
+4,35,conjunction,colorGrouped,Color,grouped,yes,The grey stars and the orange stars are grouped.,grey,orange,stars,circles,5,3,blue,1.5794340029249652,3.5,no
+5,36,conjunction,randomGrouped,Color,grouped,yes,The red crosses and the purple crosses are grouped.,red,purple,crosses,circles,4,5,orange,1.5394910703001343,3.5219280948873624,no
+1,37,conjunction,notGrouped,Shape,grouped,yes,The green squares and the orange squares are grouped.,green,orange,squares,crosses,5,5,yellow,1.4152689500270956,3.419381945646371,no
+2,38,conjunction,colorGrouped,Shape,grouped,yes,The yellow stars and the orange stars are grouped.,yellow,orange,stars,diamonds,4,3,brown,1.5794340029249652,3.202819531114783,no
+3,39,conjunction,randomGrouped,Shape,grouped,yes,The red crosses and the blue crosses are grouped.,red,blue,crosses,circles,4,5,purple,1.5294283316328894,3.721611723969901,no
+4,40,conjunction,notGrouped,Shape,grouped,yes,The grey squares and the brown squares are grouped.,grey,brown,squares,circles,5,5,red,1.4772170014624826,3.2806390622295667,no
+5,41,conjunction,colorGrouped,Shape,grouped,yes,The yellow squares and the red squares are grouped.,yellow,red,squares,circles,4,3,brown,1.5812908992306927,3.5841837197791886,no
+6,42,conjunction,randomGrouped,Shape,grouped,yes,The grey stars and the orange stars are grouped.,grey,orange,stars,crosses,4,5,green,1.565596230357602,3.373557262275185,no
+2,43,conjunction,notGrouped,Shape,grouped,yes,The green stars and the brown stars are grouped.,green,brown,stars,squares,3,3,blue,1.5656531116458188,3.6901165175936645,no
+3,44,conjunction,colorGrouped,Shape,grouped,yes,The red diamonds and the grey diamonds are grouped.,red,grey,diamonds,stars,3,4,yellow,1.5656531116458188,3.219528282299547,no
+4,45,conjunction,randomGrouped,Shape,grouped,yes,The orange circles and the grey circles are grouped.,orange,grey,circles,stars,4,3,green,1.5052408149441479,3.452819531114783,no
+5,46,conjunction,notGrouped,Shape,grouped,yes,The brown circles and the blue circles are grouped.,brown,blue,circles,squares,3,3,red,1.5715416718219246,3.1279868068776753,no
+6,47,conjunction,colorGrouped,Shape,grouped,yes,The green stars and the brown stars are grouped.,green,brown,stars,triangles,4,4,yellow,1.5656531116458188,3.6168746059562227,no
+1,48,conjunction,randomGrouped,Shape,grouped,yes,The grey stars and the blue stars are grouped.,grey,blue,stars,squares,4,5,purple,1.5794340029249652,3.6249999999999996,no
+3,49,conjunction,notGrouped,Shape,grouped,yes,The red diamonds and the green diamonds are grouped.,red,green,diamonds,stars,3,5,orange,1.5656531116458188,2.8895494308620875,no
+4,50,conjunction,colorGrouped,Shape,grouped,yes,The brown crosses and the purple crosses are grouped.,brown,purple,crosses,stars,3,4,yellow,1.5798634010685344,3.6168746059562227,no
+5,51,conjunction,randomGrouped,Shape,grouped,yes,The green stars and the orange stars are grouped.,green,orange,stars,diamonds,4,5,red,1.5812908992306927,3.4086949695628412,no
+6,52,conjunction,notGrouped,Shape,grouped,yes,The green triangles and the blue triangles are grouped.,green,blue,triangles,crosses,4,5,red,1.4836591643979626,3.146286370662104,no
+1,53,conjunction,colorGrouped,Shape,grouped,yes,The green triangles and the purple triangles are grouped.,green,purple,triangles,stars,3,3,yellow,1.5656531116458188,3.7345216647797512,no
+2,54,conjunction,randomGrouped,Shape,grouped,yes,The red diamonds and the purple diamonds are grouped.,red,purple,diamonds,circles,5,3,grey,1.5243166733459839,3.5368867237421684,no
+4,55,conjunction,notGrouped,Shape,grouped,yes,The red diamonds and the brown diamonds are grouped.,red,brown,diamonds,stars,3,5,purple,1.4056390622295665,3.202819531114783,no
+5,56,conjunction,colorGrouped,Shape,grouped,yes,The orange triangles and the red triangles are grouped.,orange,red,triangles,crosses,4,4,purple,1.568316493272887,3.826874881864638,no
+6,57,conjunction,randomGrouped,Shape,grouped,yes,The green squares and the purple squares are grouped.,green,purple,squares,crosses,5,3,yellow,1.546631615393778,3.683542362433231,no
+1,58,conjunction,notGrouped,Shape,grouped,yes,The grey stars and the brown stars are grouped.,grey,brown,stars,circles,3,5,blue,1.568316493272887,3.5368867237421675,no
+2,59,conjunction,colorGrouped,Shape,grouped,yes,The brown circles and the red circles are grouped.,brown,red,circles,crosses,5,4,grey,1.5794340029249652,3.3278195311147827,no
+3,60,conjunction,randomGrouped,Shape,grouped,yes,The yellow squares and the brown squares are grouped.,yellow,brown,squares,diamonds,3,3,blue,1.5461796919474975,3.5778195311147836,no
+5,61,conjunction,notGrouped,Shape,grouped,yes,The grey stars and the blue stars are grouped.,grey,blue,stars,crosses,5,4,green,1.54515313983491,3.2009102795095274,no
+6,62,conjunction,colorGrouped,Shape,grouped,yes,The purple stars and the brown stars are grouped.,purple,brown,stars,diamonds,3,5,green,1.584962500721156,3.6537567082870006,no
+1,63,conjunction,randomGrouped,Shape,grouped,yes,The blue triangles and the grey triangles are grouped.,blue,grey,triangles,crosses,4,4,purple,1.5294283316328894,3.7216117239699016,no
+2,64,conjunction,notGrouped,Shape,grouped,yes,The orange stars and the green stars are grouped.,orange,green,stars,squares,4,5,red,1.505240814944148,3.3749999999999996,no
+3,65,conjunction,colorGrouped,Shape,grouped,yes,The purple stars and the brown stars are grouped.,purple,brown,stars,crosses,5,5,yellow,1.584962500721156,3.506890595608519,no
+4,66,conjunction,randomGrouped,Shape,grouped,yes,The yellow stars and the red stars are grouped.,yellow,red,stars,squares,3,4,green,1.5810309627563697,3.7216117239699016,no
+6,67,conjunction,notGrouped,Shape,grouped,yes,The green diamonds and the purple diamonds are grouped.,green,purple,diamonds,triangles,5,3,red,1.5715416718219246,3.419381945646372,no
+1,68,conjunction,colorGrouped,Shape,grouped,yes,The green squares and the brown squares are grouped.,green,brown,squares,circles,4,4,yellow,1.568316493272887,3.576617644908667,no
+2,69,conjunction,randomGrouped,Shape,grouped,yes,The grey crosses and the red crosses are grouped.,grey,red,crosses,diamonds,3,5,orange,1.5656531116458188,3.3371753411230762,no
+3,70,conjunction,notGrouped,Shape,grouped,yes,The green diamonds and the orange diamonds are grouped.,green,orange,diamonds,crosses,5,4,blue,1.5394910703001343,3.384183719779189,no
+4,71,conjunction,colorGrouped,Shape,grouped,yes,The brown crosses and the purple crosses are grouped.,brown,purple,crosses,stars,3,5,yellow,1.584962500721156,3.9477027792200907,no
+5,72,conjunction,randomGrouped,Shape,grouped,yes,The yellow diamonds and the purple diamonds are grouped.,yellow,purple,diamonds,crosses,4,4,orange,1.5656531116458188,3.1751231351134606,no
+1,73,conjunction,notGrouped,Color,grouped,no,The blue circles and the purple circles are grouped.,blue,purple,circles,,4,3,,0.9709505944546688,1.5219280948873626,no
+2,74,conjunction,colorGrouped,Color,grouped,no,The brown diamonds and the orange diamonds are grouped.,brown,orange,diamonds,,5,5,,0.9940302114769566,2.8453509366224368,no
+3,75,conjunction,randomGrouped,Color,grouped,no,The purple diamonds and the green diamonds are grouped.,purple,green,diamonds,,5,3,,0.6840384356390417,2.6635327548042547,no
+4,76,conjunction,notGrouped,Color,grouped,no,The orange squares and the brown squares are grouped.,orange,brown,squares,,5,4,,0.5916727785823274,2.521640636343319,no
+5,77,conjunction,colorGrouped,Color,grouped,no,The brown triangles and the orange triangles are grouped.,brown,orange,triangles,,5,4,,0.9957274520849256,3.0269868333592873,no
+6,78,conjunction,randomGrouped,Color,grouped,no,The yellow diamonds and the purple diamonds are grouped.,yellow,purple,diamonds,,3,3,,0.9182958340544894,2.751629167387823,no
+2,79,conjunction,notGrouped,Color,grouped,no,The blue triangles and the orange triangles are grouped.,blue,orange,triangles,,4,4,,1.0,1.9182958340544896,no
+3,80,conjunction,colorGrouped,Color,grouped,no,The red diamonds and the yellow diamonds are grouped.,red,yellow,diamonds,,4,4,,1.0,3.039148671903071,no
+4,81,conjunction,randomGrouped,Color,grouped,no,The grey squares and the purple squares are grouped.,grey,purple,squares,,5,4,,1.0,3.235926350629033,no
+5,82,conjunction,notGrouped,Color,grouped,no,The grey stars and the brown stars are grouped.,grey,brown,stars,,3,3,,0.6500224216483541,1.7924812503605783,no
+6,83,conjunction,colorGrouped,Color,grouped,no,The red diamonds and the blue diamonds are grouped.,red,blue,diamonds,,4,5,,1.0,3.084962500721156,no
+1,84,conjunction,randomGrouped,Color,grouped,no,The yellow crosses and the green crosses are grouped.,yellow,green,crosses,,5,4,,0.46899559358928117,3.121928094887363,no
+3,85,conjunction,notGrouped,Color,grouped,no,The yellow crosses and the grey crosses are grouped.,yellow,grey,crosses,,5,5,,0.9709505944546688,2.3219280948873626,no
+4,86,conjunction,colorGrouped,Color,grouped,no,The brown squares and the blue squares are grouped.,brown,blue,squares,,4,5,,0.9957274520849256,3.392747410448785,no
+5,87,conjunction,randomGrouped,Color,grouped,no,The brown stars and the red stars are grouped.,brown,red,stars,,3,3,,0.9957274520849256,3.700439718141093,no
+6,88,conjunction,notGrouped,Color,grouped,no,The yellow circles and the red circles are grouped.,yellow,red,circles,,3,5,,0.9709505944546688,2.3219280948873626,no
+1,89,conjunction,colorGrouped,Color,grouped,no,The brown diamonds and the yellow diamonds are grouped.,brown,yellow,diamonds,,4,3,,1.0,2.6464393446710153,no
+2,90,conjunction,randomGrouped,Color,grouped,no,The blue squares and the yellow squares are grouped.,blue,yellow,squares,,4,4,,0.8112781244591328,3.084962500721156,no
+4,91,conjunction,notGrouped,Color,grouped,no,The grey diamonds and the green diamonds are grouped.,grey,green,diamonds,,4,4,,0.7219280948873623,2.3219280948873626,no
+5,92,conjunction,colorGrouped,Color,grouped,no,The green triangles and the blue triangles are grouped.,green,blue,triangles,,4,3,,1.0,2.9219280948873627,no
+6,93,conjunction,randomGrouped,Color,grouped,no,The orange triangles and the red triangles are grouped.,orange,red,triangles,,4,4,,0.9957274520849256,2.873140679513133,no
+1,94,conjunction,notGrouped,Color,grouped,no,The yellow stars and the green stars are grouped.,yellow,green,stars,,5,5,,0.9709505944546688,1.9219280948873625,no
+2,95,conjunction,colorGrouped,Color,grouped,no,The grey crosses and the red crosses are grouped.,grey,red,crosses,,5,4,,1.0,3.324862957617357,no
+3,96,conjunction,randomGrouped,Color,grouped,no,The yellow crosses and the brown crosses are grouped.,yellow,brown,crosses,,5,3,,0.9709505944546688,2.6464393446710153,no
+5,97,conjunction,notGrouped,Color,grouped,no,The green squares and the brown squares are grouped.,green,brown,squares,,4,3,,0.9852281360342515,1.6644977792004614,no
+6,98,conjunction,colorGrouped,Color,grouped,no,The blue squares and the yellow squares are grouped.,blue,yellow,squares,,4,3,,1.0,3.121928094887363,no
+1,99,conjunction,randomGrouped,Color,grouped,no,The green circles and the yellow circles are grouped.,green,yellow,circles,,5,5,,0.961236604722876,3.392747410448785,no
+2,100,conjunction,notGrouped,Color,grouped,no,The orange triangles and the brown triangles are grouped.,orange,brown,triangles,,5,4,,0.8631205685666311,2.807354922057605,no
+3,101,conjunction,colorGrouped,Color,grouped,no,The purple circles and the orange circles are grouped.,purple,orange,circles,,3,5,,1.0,2.985228136034252,no
+4,102,conjunction,randomGrouped,Color,grouped,no,The brown circles and the yellow circles are grouped.,brown,yellow,circles,,5,3,,0.9182958340544894,3.2516291673878235,no
+6,103,conjunction,notGrouped,Color,grouped,no,The blue triangles and the purple triangles are grouped.,blue,purple,triangles,,4,4,,0.9709505944546688,1.9219280948873625,no
+1,104,conjunction,colorGrouped,Color,grouped,no,The orange triangles and the blue triangles are grouped.,orange,blue,triangles,,3,5,,1.0,3.3787834934861753,no
+2,105,conjunction,randomGrouped,Color,grouped,no,The green diamonds and the yellow diamonds are grouped.,green,yellow,diamonds,,3,5,,0.9957274520849256,3.085055102756477,no
+3,106,conjunction,notGrouped,Color,grouped,no,The green stars and the brown stars are grouped.,green,brown,stars,,3,5,,0.7219280948873623,1.9219280948873625,no
+4,107,conjunction,colorGrouped,Color,grouped,no,The blue stars and the purple stars are grouped.,blue,purple,stars,,3,4,,1.0,2.721928094887362,no
+5,108,conjunction,randomGrouped,Color,grouped,no,The blue diamonds and the red diamonds are grouped.,blue,red,diamonds,,5,3,,0.9456603046006401,3.095795255000934,no
+1,109,conjunction,notGrouped,Shape,grouped,no,The yellow diamonds and the purple diamonds are grouped.,yellow,purple,diamonds,,3,3,,0.9852281360342515,2.521640636343319,no
+2,110,conjunction,colorGrouped,Shape,grouped,no,The brown triangles and the red triangles are grouped.,brown,red,triangles,,4,3,,1.0,2.9502120649147465,no
+3,111,conjunction,randomGrouped,Shape,grouped,no,The blue stars and the red stars are grouped.,blue,red,stars,,4,4,,0.9957274520849256,3.0269868333592873,no
+4,112,conjunction,notGrouped,Shape,grouped,no,The grey squares and the brown squares are grouped.,grey,brown,squares,,5,4,,0.6500224216483541,2.251629167387823,no
+5,113,conjunction,colorGrouped,Shape,grouped,no,The orange circles and the red circles are grouped.,orange,red,circles,,5,3,,1.0,2.91829583405449,no
+6,114,conjunction,randomGrouped,Shape,grouped,no,The red circles and the brown circles are grouped.,red,brown,circles,,3,5,,0.9852281360342515,3.3787834934861753,no
+2,115,conjunction,notGrouped,Shape,grouped,no,The orange crosses and the brown crosses are grouped.,orange,brown,crosses,,5,3,,0.9182958340544894,2.584962500721156,no
+3,116,conjunction,colorGrouped,Shape,grouped,no,The purple stars and the red stars are grouped.,purple,red,stars,,4,5,,1.0,3.1820058147602137,no
+4,117,conjunction,randomGrouped,Shape,grouped,no,The blue diamonds and the green diamonds are grouped.,blue,green,diamonds,,5,4,,0.8904916402194913,3.238901256602631,no
+5,118,conjunction,notGrouped,Shape,grouped,no,The yellow crosses and the purple crosses are grouped.,yellow,purple,crosses,,3,3,,0.9182958340544894,2.584962500721156,no
+6,119,conjunction,colorGrouped,Shape,grouped,no,The grey stars and the yellow stars are grouped.,grey,yellow,stars,,3,3,,1.0,3.521640636343319,no
+1,120,conjunction,randomGrouped,Shape,grouped,no,The blue stars and the green stars are grouped.,blue,green,stars,,3,5,,0.961236604722876,2.8150724101159432,no
+3,121,conjunction,notGrouped,Shape,grouped,no,The brown circles and the grey circles are grouped.,brown,grey,circles,,4,3,,0.9709505944546688,1.9219280948873625,no
+4,122,conjunction,colorGrouped,Shape,grouped,no,The blue diamonds and the yellow diamonds are grouped.,blue,yellow,diamonds,,5,5,,1.0,2.896291529045928,no
+5,123,conjunction,randomGrouped,Shape,grouped,no,The blue triangles and the yellow triangles are grouped.,blue,yellow,triangles,,5,3,,0.9957274520849256,3.700439718141093,no
+6,124,conjunction,notGrouped,Shape,grouped,no,The brown triangles and the blue triangles are grouped.,brown,blue,triangles,,3,4,,0.9709505944546688,2.3219280948873626,no
+1,125,conjunction,colorGrouped,Shape,grouped,no,The blue crosses and the purple crosses are grouped.,blue,purple,crosses,,4,4,,1.0,3.084962500721156,no
+2,126,conjunction,randomGrouped,Shape,grouped,no,The orange squares and the brown squares are grouped.,orange,brown,squares,,5,3,,0.940285958670631,3.3248629576173565,no
+4,127,conjunction,notGrouped,Shape,grouped,no,The grey crosses and the yellow crosses are grouped.,grey,yellow,crosses,,5,5,,0.6500224216483541,2.2516291673878226,no
+5,128,conjunction,colorGrouped,Shape,grouped,no,The green triangles and the red triangles are grouped.,green,red,triangles,,4,4,,1.0,3.235926350629033,no
+6,129,conjunction,randomGrouped,Shape,grouped,no,The yellow stars and the grey stars are grouped.,yellow,grey,stars,,3,5,,0.9182958340544894,3.084962500721156,no
+1,130,conjunction,notGrouped,Shape,grouped,no,The grey crosses and the brown crosses are grouped.,grey,brown,crosses,,4,5,,0.9182958340544894,2.251629167387823,no
+2,131,conjunction,colorGrouped,Shape,grouped,no,The red squares and the blue squares are grouped.,red,blue,squares,,4,3,,1.0,2.9219280948873627,no
+3,132,conjunction,randomGrouped,Shape,grouped,no,The yellow triangles and the orange triangles are grouped.,yellow,orange,triangles,,3,3,,0.9456603046006401,2.8453509366224368,no
+5,133,conjunction,notGrouped,Shape,grouped,no,The brown circles and the orange circles are grouped.,brown,orange,circles,,4,5,,1.0,1.7924812503605783,no
+6,134,conjunction,colorGrouped,Shape,grouped,no,The yellow crosses and the blue crosses are grouped.,yellow,blue,crosses,,5,3,,0.9940302114769566,2.413088436425758,no
+1,135,conjunction,randomGrouped,Shape,grouped,no,The green triangles and the orange triangles are grouped.,green,orange,triangles,,3,3,,0.8904916402194913,2.7192945256669794,no
+2,136,conjunction,notGrouped,Shape,grouped,no,The brown diamonds and the green diamonds are grouped.,brown,green,diamonds,,5,3,,0.9709505944546688,2.3219280948873626,no
+3,137,conjunction,colorGrouped,Shape,grouped,no,The yellow squares and the brown squares are grouped.,yellow,brown,squares,,5,5,,0.9940302114769566,3.095795255000934,no
+4,138,conjunction,randomGrouped,Shape,grouped,no,The red stars and the green stars are grouped.,red,green,stars,,3,5,,0.9709505944546688,2.8464393446710154,no
+6,139,conjunction,notGrouped,Shape,grouped,no,The purple crosses and the red crosses are grouped.,purple,red,crosses,,4,3,,0.9182958340544894,1.9182958340544896,no
+1,140,conjunction,colorGrouped,Shape,grouped,no,The purple diamonds and the orange diamonds are grouped.,purple,orange,diamonds,,4,4,,0.9957274520849256,3.238901256602631,no
+2,141,conjunction,randomGrouped,Shape,grouped,no,The green circles and the grey circles are grouped.,green,grey,circles,,4,3,,1.0,2.9219280948873627,no
+3,142,conjunction,notGrouped,Shape,grouped,no,The red diamonds and the yellow diamonds are grouped.,red,yellow,diamonds,,3,5,,0.9182958340544894,2.251629167387823,no
+4,143,conjunction,colorGrouped,Shape,grouped,no,The brown diamonds and the grey diamonds are grouped.,brown,grey,diamonds,,5,4,,1.0,2.855388542207534,no
+5,144,conjunction,randomGrouped,Shape,grouped,no,The orange crosses and the red crosses are grouped.,orange,red,crosses,,4,4,,0.7793498372920851,3.180832987205441,no
+1,901,all,notGrouped,Shape,grouped,no,All of the squares are grey.,grey,grey,squares,,5,5,,0.0,2.3219280948873626,yes_true
+1,902,some,notGrouped,Color,grouped,no,Some of the triangles are blue.,blue,brown,triangles,,3,5,,0.6500224216483541,2.584962500721156,yes_true
+1,903,all,notGrouped,Shape,grouped,no,All of the diamonds are grey.,grey,grey,diamonds,,4,4,,0.0,2.584962500721156,yes_true
+1,904,some,notGrouped,Color,grouped,no,Some of the triangles are red.,red,purple,triangles,,5,3,,0.9709505944546688,2.3219280948873626,yes_true
+1,905,all,notGrouped,Shape,grouped,no,All of the stars are yellow.,yellow,yellow,stars,,3,4,,0.0,2.3219280948873626,yes_true
+1,906,some,notGrouped,Color,grouped,no,Some of the triangles are grey.,grey,green,triangles,,4,5,,0.9709505944546688,1.9219280948873625,yes_true
+1,907,all,notGrouped,Shape,grouped,no,All of the crosses are red.,red,red,crosses,,5,5,,0.0,1.9219280948873625,yes_true
+1,908,some,notGrouped,Color,grouped,no,Some of the crosses are brown.,brown,purple,crosses,,3,5,,0.9709505944546688,2.3219280948873626,yes_true
+1,909,all,notGrouped,Shape,grouped,no,All of the triangles are blue.,blue,blue,triangles,,4,4,,0.0,2.3219280948873626,yes_true
+1,910,some,notGrouped,Color,grouped,no,Some of the triangles are grey.,grey,orange,triangles,,5,3,,0.7219280948873623,2.3219280948873626,yes_true
+1,911,all,notGrouped,Shape,grouped,no,All of the crosses are yellow.,yellow,yellow,crosses,,3,4,,0.0,2.521640636343318,yes_true
+1,912,some,notGrouped,Color,grouped,no,Some of the squares are grey.,grey,orange,squares,,4,5,,0.9709505944546688,1.9219280948873625,yes_true
+1,913,all,notGrouped,Shape,grouped,no,All of the squares are green.,brown,brown,squares,,5,5,,0.0,2.3219280948873626,yes_false
+1,914,some,notGrouped,Color,grouped,no,Some of the diamonds are orange.,yellow,yellow,diamonds,,3,5,,0.0,2.521640636343319,yes_false
+1,915,all,notGrouped,Shape,grouped,no,All of the crosses are yellow.,green,green,crosses,,4,4,,0.0,2.584962500721156,yes_false
+1,916,some,notGrouped,Color,grouped,no,Some of the diamonds are orange.,green,green,diamonds,,5,3,,0.0,2.251629167387823,yes_false
+1,917,all,notGrouped,Shape,grouped,no,All of the triangles are purple.,green,green,triangles,,3,4,,0.0,2.584962500721156,yes_false
+1,918,some,notGrouped,Color,grouped,no,Some of the crosses are orange.,yellow,yellow,crosses,,4,5,,0.0,2.2516291673878226,yes_false
+1,919,all,notGrouped,Shape,grouped,no,All of the squares are orange.,brown,brown,squares,,5,5,,0.0,1.9219280948873625,yes_false
+1,920,some,notGrouped,Color,grouped,no,Some of the circles are orange.,green,green,circles,,3,5,,0.0,1.8423709931771088,yes_false
+1,921,all,notGrouped,Shape,grouped,no,All of the diamonds are orange.,brown,brown,diamonds,,4,4,,0.0,2.521640636343319,yes_false
+1,922,some,notGrouped,Color,grouped,no,Some of the circles are grey.,green,green,circles,,5,3,,0.0,2.251629167387823,yes_false
+1,923,all,notGrouped,Shape,grouped,no,All of the diamonds are yellow.,blue,blue,diamonds,,3,4,,0.0,2.2516291673878226,yes_false
+1,924,some,notGrouped,Color,grouped,no,Some of the stars are yellow.,red,red,stars,,4,5,,0.0,2.3219280948873626,yes_false
+1,801,conjunction,colorGrouped,Shape,grouped,no,The green stars and the red stars are grouped.,green,red,stars,,3,4,,0.9957274520849256,3.0269868333592873,no
+1,802,conjunction,notGrouped,Color,grouped,no,The purple triangles and the orange triangles are grouped.,purple,orange,triangles,,4,3,,0.9852281360342515,2.521640636343319,no
+1,803,conjunction,randomGrouped,Shape,grouped,no,The green stars and the red stars are grouped.,green,red,stars,,5,4,,0.46899559358928117,3.121928094887363,no
+2,901,all,notGrouped,Shape,grouped,no,All of the stars are brown.,brown,brown,stars,,5,5,,0.0,2.3219280948873626,yes_true
+2,902,some,notGrouped,Color,grouped,no,Some of the squares are purple.,purple,yellow,squares,,3,5,,0.8631205685666311,2.521640636343319,yes_true
+2,903,all,notGrouped,Shape,grouped,no,All of the squares are yellow.,yellow,yellow,squares,,4,4,,0.0,1.7924812503605783,yes_true
+2,904,some,notGrouped,Color,grouped,no,Some of the squares are yellow.,yellow,purple,squares,,5,3,,0.8631205685666311,2.807354922057605,yes_true
+2,905,all,notGrouped,Shape,grouped,no,All of the crosses are orange.,orange,orange,crosses,,3,4,,0.0,2.3219280948873626,yes_true
+2,906,some,notGrouped,Color,grouped,no,Some of the squares are green.,green,grey,squares,,4,5,,0.9182958340544894,2.584962500721156,yes_true
+2,907,all,notGrouped,Shape,grouped,no,All of the circles are purple.,purple,purple,circles,,5,5,,0.0,2.584962500721156,yes_true
+2,908,some,notGrouped,Color,grouped,no,Some of the stars are grey.,grey,yellow,stars,,3,5,,0.9852281360342515,2.521640636343319,yes_true
+2,909,all,notGrouped,Shape,grouped,no,All of the diamonds are yellow.,yellow,yellow,diamonds,,4,4,,0.0,2.251629167387823,yes_true
+2,910,some,notGrouped,Color,grouped,no,Some of the stars are purple.,purple,red,stars,,5,3,,0.9852281360342515,2.521640636343318,yes_true
+2,911,all,notGrouped,Shape,grouped,no,All of the crosses are brown.,brown,brown,crosses,,3,4,,0.0,1.9219280948873625,yes_true
+2,912,some,notGrouped,Color,grouped,no,Some of the triangles are red.,red,brown,triangles,,4,5,,0.7219280948873623,1.9219280948873625,yes_true
+2,913,all,notGrouped,Shape,grouped,no,All of the squares are purple.,green,green,squares,,5,5,,0.0,2.128085278891394,yes_false
+2,914,some,notGrouped,Color,grouped,no,Some of the squares are brown.,blue,blue,squares,,3,5,,0.0,2.807354922057605,yes_false
+2,915,all,notGrouped,Shape,grouped,no,All of the circles are blue.,grey,grey,circles,,4,4,,0.0,2.584962500721156,yes_false
+2,916,some,notGrouped,Color,grouped,no,Some of the diamonds are purple.,grey,grey,diamonds,,5,3,,0.0,2.584962500721156,yes_false
+2,917,all,notGrouped,Shape,grouped,no,All of the circles are green.,blue,blue,circles,,3,4,,0.0,1.9182958340544896,yes_false
+2,918,some,notGrouped,Color,grouped,no,Some of the crosses are red.,grey,grey,crosses,,4,5,,0.0,2.3219280948873626,yes_false
+2,919,all,notGrouped,Shape,grouped,no,All of the diamonds are yellow.,grey,grey,diamonds,,5,5,,0.0,2.251629167387823,yes_false
+2,920,some,notGrouped,Color,grouped,no,Some of the crosses are green.,red,red,crosses,,3,5,,0.0,1.9219280948873625,yes_false
+2,921,all,notGrouped,Shape,grouped,no,All of the squares are red.,grey,grey,squares,,4,4,,0.0,2.3219280948873626,yes_false
+2,922,some,notGrouped,Color,grouped,no,Some of the triangles are green.,yellow,yellow,triangles,,5,3,,0.0,2.2516291673878226,yes_false
+2,923,all,notGrouped,Shape,grouped,no,All of the circles are orange.,blue,blue,circles,,3,4,,0.0,2.584962500721156,yes_false
+2,924,some,notGrouped,Color,grouped,no,Some of the triangles are orange.,purple,purple,triangles,,4,5,,0.0,2.3219280948873626,yes_false
+2,801,conjunction,colorGrouped,Shape,grouped,no,The grey stars and the blue stars are grouped.,grey,blue,stars,,3,4,,0.9957274520849256,2.7773627950641693,no
+2,802,conjunction,notGrouped,Color,grouped,no,The orange squares and the red squares are grouped.,orange,red,squares,,4,3,,0.9182958340544894,2.251629167387823,no
+2,803,conjunction,randomGrouped,Shape,grouped,no,The green diamonds and the red diamonds are grouped.,green,red,diamonds,,5,4,,0.9852281360342515,3.521640636343319,no
+3,901,all,notGrouped,Shape,grouped,no,All of the diamonds are green.,green,green,diamonds,,5,5,,0.0,2.584962500721156,yes_true
+3,902,some,notGrouped,Color,grouped,no,Some of the triangles are green.,green,grey,triangles,,3,5,,0.9709505944546688,2.3219280948873626,yes_true
+3,903,all,notGrouped,Shape,grouped,no,All of the triangles are green.,green,green,triangles,,4,4,,0.0,2.3219280948873626,yes_true
+3,904,some,notGrouped,Color,grouped,no,Some of the squares are green.,green,red,squares,,5,3,,0.9182958340544894,2.584962500721156,yes_true
+3,905,all,notGrouped,Shape,grouped,no,All of the circles are orange.,orange,orange,circles,,3,4,,0.0,1.9219280948873625,yes_true
+3,906,some,notGrouped,Color,grouped,no,Some of the stars are yellow.,yellow,purple,stars,,4,5,,0.7219280948873623,2.3219280948873626,yes_true
+3,907,all,notGrouped,Shape,grouped,no,All of the circles are grey.,grey,grey,circles,,5,5,,0.0,2.2516291673878226,yes_true
+3,908,some,notGrouped,Color,grouped,no,Some of the squares are blue.,blue,purple,squares,,3,5,,0.8631205685666311,2.2359263506290326,yes_true
+3,909,all,notGrouped,Shape,grouped,no,All of the squares are red.,red,red,squares,,4,4,,0.0,1.9182958340544896,yes_true
+3,910,some,notGrouped,Color,grouped,no,Some of the triangles are brown.,brown,grey,triangles,,5,3,,0.9182958340544894,1.9182958340544896,yes_true
+3,911,all,notGrouped,Shape,grouped,no,All of the diamonds are brown.,brown,brown,diamonds,,3,4,,0.0,2.807354922057605,yes_true
+3,912,some,notGrouped,Color,grouped,no,Some of the circles are brown.,brown,blue,circles,,4,5,,0.8631205685666311,2.521640636343319,yes_true
+3,913,all,notGrouped,Shape,grouped,no,All of the diamonds are green.,brown,brown,diamonds,,5,5,,0.0,2.2359263506290326,yes_false
+3,914,some,notGrouped,Color,grouped,no,Some of the triangles are purple.,green,green,triangles,,3,5,,0.0,2.3219280948873626,yes_false
+3,915,all,notGrouped,Shape,grouped,no,All of the triangles are grey.,red,red,triangles,,4,4,,0.0,2.3219280948873626,yes_false
+3,916,some,notGrouped,Color,grouped,no,Some of the stars are purple.,blue,blue,stars,,5,3,,0.0,2.584962500721156,yes_false
+3,917,all,notGrouped,Shape,grouped,no,All of the circles are grey.,blue,blue,circles,,3,4,,0.0,2.584962500721156,yes_false
+3,918,some,notGrouped,Color,grouped,no,Some of the squares are blue.,grey,grey,squares,,4,5,,0.0,1.5219280948873626,yes_false
+3,919,all,notGrouped,Shape,grouped,no,All of the triangles are green.,brown,brown,triangles,,5,5,,0.0,1.370950594454669,yes_false
+3,920,some,notGrouped,Color,grouped,no,Some of the triangles are red.,orange,orange,triangles,,3,5,,0.0,2.251629167387823,yes_false
+3,921,all,notGrouped,Shape,grouped,no,All of the triangles are purple.,brown,brown,triangles,,4,4,,0.0,2.3219280948873626,yes_false
+3,922,some,notGrouped,Color,grouped,no,Some of the circles are red.,orange,orange,circles,,5,3,,0.0,2.251629167387823,yes_false
+3,923,all,notGrouped,Shape,grouped,no,All of the circles are grey.,orange,orange,circles,,3,4,,0.0,2.251629167387823,yes_false
+3,924,some,notGrouped,Color,grouped,no,Some of the diamonds are green.,red,red,diamonds,,4,5,,0.0,2.584962500721156,yes_false
+3,801,conjunction,colorGrouped,Shape,grouped,no,The red squares and the green squares are grouped.,red,green,squares,,3,4,,1.0,3.0391486719030705,no
+3,802,conjunction,notGrouped,Color,grouped,no,The yellow circles and the blue circles are grouped.,yellow,blue,circles,,4,3,,0.7219280948873623,2.3219280948873626,no
+3,803,conjunction,randomGrouped,Shape,grouped,no,The red circles and the orange circles are grouped.,red,orange,circles,,5,4,,0.0,2.9219280948873627,no
+4,901,all,notGrouped,Shape,grouped,no,All of the crosses are purple.,purple,purple,crosses,,5,5,,0.0,2.3219280948873626,yes_true
+4,902,some,notGrouped,Color,grouped,no,Some of the squares are purple.,purple,brown,squares,,3,5,,0.9852281360342515,2.521640636343319,yes_true
+4,903,all,notGrouped,Shape,grouped,no,All of the stars are grey.,grey,grey,stars,,4,4,,0.0,1.8423709931771086,yes_true
+4,904,some,notGrouped,Color,grouped,no,Some of the squares are grey.,grey,yellow,squares,,5,3,,1.0,1.459147917027245,yes_true
+4,905,all,notGrouped,Shape,grouped,no,All of the crosses are red.,red,red,crosses,,3,4,,0.0,2.235926350629033,yes_true
+4,906,some,notGrouped,Color,grouped,no,Some of the crosses are yellow.,yellow,red,crosses,,4,5,,1.0,2.584962500721156,yes_true
+4,907,all,notGrouped,Shape,grouped,no,All of the diamonds are brown.,brown,brown,diamonds,,5,5,,0.0,2.3219280948873626,yes_true
+4,908,some,notGrouped,Color,grouped,no,Some of the circles are orange.,orange,yellow,circles,,3,5,,1.0,2.584962500721156,yes_true
+4,909,all,notGrouped,Shape,grouped,no,All of the diamonds are grey.,grey,grey,diamonds,,4,4,,0.0,2.3219280948873626,yes_true
+4,910,some,notGrouped,Color,grouped,no,Some of the squares are green.,green,blue,squares,,5,3,,0.0,2.584962500721156,yes_true
+4,911,all,notGrouped,Shape,grouped,no,All of the squares are green.,green,green,squares,,3,4,,0.0,2.2516291673878226,yes_true
+4,912,some,notGrouped,Color,grouped,no,Some of the diamonds are blue.,blue,red,diamonds,,4,5,,0.7219280948873623,2.3219280948873626,yes_true
+4,913,all,notGrouped,Shape,grouped,no,All of the circles are purple.,blue,blue,circles,,5,5,,0.0,1.9182958340544896,yes_false
+4,914,some,notGrouped,Color,grouped,no,Some of the squares are brown.,purple,purple,squares,,3,5,,0.0,2.521640636343319,yes_false
+4,915,all,notGrouped,Shape,grouped,no,All of the circles are brown.,red,red,circles,,4,4,,0.0,2.251629167387823,yes_false
+4,916,some,notGrouped,Color,grouped,no,Some of the triangles are grey.,red,red,triangles,,5,3,,0.0,2.584962500721156,yes_false
+4,917,all,notGrouped,Shape,grouped,no,All of the squares are red.,yellow,yellow,squares,,3,4,,0.0,2.3219280948873626,yes_false
+4,918,some,notGrouped,Color,grouped,no,Some of the circles are blue.,green,green,circles,,4,5,,0.0,2.3219280948873626,yes_false
+4,919,all,notGrouped,Shape,grouped,no,All of the circles are red.,blue,blue,circles,,5,5,,0.0,1.9182958340544896,yes_false
+4,920,some,notGrouped,Color,grouped,no,Some of the stars are purple.,yellow,yellow,stars,,3,5,,0.0,2.2516291673878226,yes_false
+4,921,all,notGrouped,Shape,grouped,no,All of the stars are purple.,orange,orange,stars,,4,4,,0.0,2.521640636343319,yes_false
+4,922,some,notGrouped,Color,grouped,no,Some of the circles are brown.,orange,orange,circles,,5,3,,0.0,2.2516291673878226,yes_false
+4,923,all,notGrouped,Shape,grouped,no,All of the triangles are orange.,purple,purple,triangles,,3,4,,0.0,2.584962500721156,yes_false
+4,924,some,notGrouped,Color,grouped,no,Some of the stars are red.,purple,purple,stars,,4,5,,0.0,2.584962500721156,yes_false
+4,801,conjunction,colorGrouped,Shape,grouped,no,The yellow circles and the green circles are grouped.,yellow,green,circles,,3,4,,1.0,3.039148671903071,no
+4,802,conjunction,notGrouped,Color,grouped,no,The orange crosses and the brown crosses are grouped.,orange,brown,crosses,,4,3,,0.9182958340544894,2.251629167387823,no
+4,803,conjunction,randomGrouped,Shape,grouped,no,The purple triangles and the green triangles are grouped.,purple,green,triangles,,5,4,,0.961236604722876,3.392747410448785,no
+5,901,all,notGrouped,Shape,grouped,no,All of the diamonds are brown.,brown,brown,diamonds,,5,5,,0.0,2.3219280948873626,yes_true
+5,902,some,notGrouped,Color,grouped,no,Some of the squares are grey.,grey,green,squares,,3,5,,0.7219280948873623,2.3219280948873626,yes_true
+5,903,all,notGrouped,Shape,grouped,no,All of the squares are yellow.,yellow,yellow,squares,,4,4,,0.0,2.584962500721156,yes_true
+5,904,some,notGrouped,Color,grouped,no,Some of the diamonds are yellow.,yellow,blue,diamonds,,5,3,,0.7219280948873623,1.9219280948873625,yes_true
+5,905,all,notGrouped,Shape,grouped,no,All of the crosses are red.,red,red,crosses,,3,4,,0.0,2.3219280948873626,yes_true
+5,906,some,notGrouped,Color,grouped,no,Some of the circles are blue.,blue,purple,circles,,4,5,,1.0,2.251629167387823,yes_true
+5,907,all,notGrouped,Shape,grouped,no,All of the circles are red.,red,red,circles,,5,5,,0.0,2.3219280948873626,yes_true
+5,908,some,notGrouped,Color,grouped,no,Some of the stars are red.,red,green,stars,,3,5,,0.8631205685666311,2.807354922057605,yes_true
+5,909,all,notGrouped,Shape,grouped,no,All of the circles are green.,green,green,circles,,4,4,,0.0,1.9219280948873625,yes_true
+5,910,some,notGrouped,Color,grouped,no,Some of the triangles are green.,green,grey,triangles,,5,3,,0.7219280948873623,1.9219280948873625,yes_true
+5,911,all,notGrouped,Shape,grouped,no,All of the squares are grey.,grey,grey,squares,,3,4,,0.0,2.3219280948873626,yes_true
+5,912,some,notGrouped,Color,grouped,no,Some of the triangles are blue.,blue,brown,triangles,,4,5,,0.9709505944546688,2.3219280948873626,yes_true
+5,913,all,notGrouped,Shape,grouped,no,All of the squares are green.,grey,grey,squares,,5,5,,0.0,1.9219280948873625,yes_false
+5,914,some,notGrouped,Color,grouped,no,Some of the squares are brown.,green,green,squares,,3,5,,0.0,2.2359263506290334,yes_false
+5,915,all,notGrouped,Shape,grouped,no,All of the diamonds are purple.,green,green,diamonds,,4,4,,0.0,1.9219280948873625,yes_false
+5,916,some,notGrouped,Color,grouped,no,Some of the stars are yellow.,brown,brown,stars,,5,3,,0.0,2.584962500721156,yes_false
+5,917,all,notGrouped,Shape,grouped,no,All of the stars are purple.,blue,blue,stars,,3,4,,0.0,1.3787834934861756,yes_false
+5,918,some,notGrouped,Color,grouped,no,Some of the triangles are brown.,grey,grey,triangles,,4,5,,0.0,2.251629167387823,yes_false
+5,919,all,notGrouped,Shape,grouped,no,All of the diamonds are orange.,grey,grey,diamonds,,5,5,,0.0,2.251629167387823,yes_false
+5,920,some,notGrouped,Color,grouped,no,Some of the triangles are brown.,grey,grey,triangles,,3,5,,0.0,1.8423709931771086,yes_false
+5,921,all,notGrouped,Shape,grouped,no,All of the squares are red.,brown,brown,squares,,4,4,,0.0,2.807354922057605,yes_false
+5,922,some,notGrouped,Color,grouped,no,Some of the triangles are yellow.,blue,blue,triangles,,5,3,,0.0,2.3219280948873626,yes_false
+5,923,all,notGrouped,Shape,grouped,no,All of the stars are orange.,brown,brown,stars,,3,4,,0.0,2.251629167387823,yes_false
+5,924,some,notGrouped,Color,grouped,no,Some of the diamonds are red.,green,green,diamonds,,4,5,,0.0,2.3219280948873626,yes_false
+5,801,conjunction,colorGrouped,Shape,grouped,no,The blue stars and the purple stars are grouped.,blue,purple,stars,,3,4,,0.9940302114769566,2.913977073182752,no
+5,802,conjunction,notGrouped,Color,grouped,no,The green squares and the orange squares are grouped.,green,orange,squares,,4,3,,0.9709505944546688,2.3219280948873626,no
+5,803,conjunction,randomGrouped,Shape,grouped,no,The purple triangles and the red triangles are grouped.,purple,red,triangles,,5,4,,0.8453509366224364,3.0271691184406184,no
+6,901,all,notGrouped,Shape,grouped,no,All of the stars are brown.,brown,brown,stars,,5,5,,0.0,2.584962500721156,yes_true
+6,902,some,notGrouped,Color,grouped,no,Some of the triangles are blue.,blue,green,triangles,,3,5,,0.9182958340544894,2.251629167387823,yes_true
+6,903,all,notGrouped,Shape,grouped,no,All of the stars are red.,red,red,stars,,4,4,,0.0,2.584962500721156,yes_true
+6,904,some,notGrouped,Color,grouped,no,Some of the crosses are brown.,brown,green,crosses,,5,3,,0.9182958340544894,2.584962500721156,yes_true
+6,905,all,notGrouped,Shape,grouped,no,All of the diamonds are yellow.,yellow,yellow,diamonds,,3,4,,0.0,2.521640636343319,yes_true
+6,906,some,notGrouped,Color,grouped,no,Some of the squares are purple.,purple,brown,squares,,4,5,,0.7219280948873623,1.9219280948873625,yes_true
+6,907,all,notGrouped,Shape,grouped,no,All of the squares are red.,red,red,squares,,5,5,,0.0,2.251629167387823,yes_true
+6,908,some,notGrouped,Color,grouped,no,Some of the diamonds are grey.,grey,blue,diamonds,,3,5,,0.9182958340544894,2.584962500721156,yes_true
+6,909,all,notGrouped,Shape,grouped,no,All of the squares are blue.,blue,blue,squares,,4,4,,0.0,2.584962500721156,yes_true
+6,910,some,notGrouped,Color,grouped,no,Some of the triangles are green.,green,purple,triangles,,5,3,,0.8631205685666311,1.8423709931771086,yes_true
+6,911,all,notGrouped,Shape,grouped,no,All of the triangles are grey.,grey,grey,triangles,,3,4,,0.0,1.9219280948873625,yes_true
+6,912,some,notGrouped,Color,grouped,no,Some of the stars are orange.,orange,grey,stars,,4,5,,0.9182958340544894,2.584962500721156,yes_true
+6,913,all,notGrouped,Shape,grouped,no,All of the squares are brown.,orange,orange,squares,,5,5,,0.0,1.9219280948873625,yes_false
+6,914,some,notGrouped,Color,grouped,no,Some of the diamonds are brown.,blue,blue,diamonds,,3,5,,0.0,2.3219280948873626,yes_false
+6,915,all,notGrouped,Shape,grouped,no,All of the triangles are green.,grey,grey,triangles,,4,4,,0.0,2.3219280948873626,yes_false
+6,916,some,notGrouped,Color,grouped,no,Some of the diamonds are yellow.,brown,brown,diamonds,,5,3,,0.0,2.521640636343319,yes_false
+6,917,all,notGrouped,Shape,grouped,no,All of the triangles are brown.,yellow,yellow,triangles,,3,4,,0.0,2.521640636343319,yes_false
+6,918,some,notGrouped,Color,grouped,no,Some of the diamonds are orange.,blue,blue,diamonds,,4,5,,0.0,2.251629167387823,yes_false
+6,919,all,notGrouped,Shape,grouped,no,All of the circles are red.,blue,blue,circles,,5,5,,0.0,2.584962500721156,yes_false
+6,920,some,notGrouped,Color,grouped,no,Some of the diamonds are purple.,brown,brown,diamonds,,3,5,,0.0,2.584962500721156,yes_false
+6,921,all,notGrouped,Shape,grouped,no,All of the crosses are green.,blue,blue,crosses,,4,4,,0.0,2.584962500721156,yes_false
+6,922,some,notGrouped,Color,grouped,no,Some of the squares are blue.,yellow,yellow,squares,,5,3,,0.0,2.3219280948873626,yes_false
+6,923,all,notGrouped,Shape,grouped,no,All of the stars are green.,yellow,yellow,stars,,3,4,,0.0,2.584962500721156,yes_false
+6,924,some,notGrouped,Color,grouped,no,Some of the stars are blue.,green,green,stars,,4,5,,0.0,2.2359263506290326,yes_false
+6,801,conjunction,colorGrouped,Shape,grouped,no,The orange crosses and the brown crosses are grouped.,orange,brown,crosses,,3,4,,1.0,2.446439344671015,no
+6,802,conjunction,notGrouped,Color,grouped,no,The blue stars and the grey stars are grouped.,blue,grey,stars,,4,3,,0.7219280948873623,2.3219280948873626,no
+6,803,conjunction,randomGrouped,Shape,grouped,no,The green circles and the grey circles are grouped.,green,grey,circles,,5,4,,0.7793498372920851,3.085055102756477,no

@@ -1,0 +1,227 @@
+---
+title: "Analysis Script RSAcover"
+author: "TBD"
+date: "2025-02-10"
+output: pdf_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+Supress messages in this document so that the output is cleaner.
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+```
+Import packages.
+```{r}
+rm(list = ls())
+options(warn = -1)
+library(tidyverse)
+library(lme4)
+library(lmerTest)
+library(ggplot2)
+library(aida)
+library(BayesFactor)
+library(pwr)
+library(brms)
+library(emmeans)
+library(effsize)
+library(HDInterval)
+```
+
+Set up theme for ggplot.
+
+```{r}
+theme_set(theme_aida())
+
+##################################################
+## CSP-colors
+##################################################
+CSP_colors = c(
+  "#7581B3", "#99C2C2", "#C65353", "#E2BA78", "#5C7457", "#575463",
+  "#B0B7D4", "#66A3A3", "#DB9494", "#D49735", "#9BB096", "#D4D3D9",
+  "#414C76", "#993333"
+  )
+# setting theme colors globally
+scale_colour_discrete <- function(...) {
+  scale_colour_manual(..., values = CSP_colors)
+}
+scale_fill_discrete <- function(...) {
+  scale_fill_manual(..., values = CSP_colors)
+}
+```
+
+# Data Import & Preprocessing
+
+## Import data batch1
+
+```{r}
+data <- read.csv("../../data/pilot-2a/results.csv")
+```
+
+Factorise variables: id, informationSource
+```{r}
+#data$id <- as.factor(1:nrow(data))
+data$F1_NP <- as.factor(data$F1_NP)
+data$F2_visual <- as.factor(data$F2_visual)
+```
+
+Drop unnecessary columns and NA values. Filter out practice and filler items.
+```{r}
+practice_itemNr_list <- c(801,802,803)
+filler_itemNr_list <- c(901:924)
+
+data_filler <- data %>% select(submission_id,, 
+                               acceptability, 
+                               List, itemNr, 
+                               F1_NPforms, 
+                               F2_matchness)%>%
+  filter(itemNr %in% filler_itemNr_list)
+
+data <- data %>% select(submission_id, 
+                        acceptability, 
+                        List, 
+                        itemNr, 
+                        F1_NP, 
+                        F2_visual) %>% 
+  filter(!itemNr %in% practice_itemNr_list & !itemNr %in% filler_itemNr_list)
+
+
+```
+
+Show list distribution.
+```{r}
+data %>% group_by(List) %>% summarise(n = n()/24)
+```
+
+
+# Exploratory Data Analysis
+
+## Histogram of Updated Probabilities
+
+```{r}
+ggplot(data, aes(x = acceptability)) +
+  geom_histogram(binwidth = 5, fill = CSP_colors[1]) +
+  facet_wrap( ~ F2_visual, scales = "free_y") +
+  labs(title = "Distribution of Acceptability Ratings",
+       x = "Acceptability",
+       y = "Frequency")
+
+```
+
+## Density plot of Updated Probabilities
+
+```{r}
+ggplot(data, aes(x = acceptability)) +
+  geom_density(fill = CSP_colors[1]) +
+  facet_wrap(~ F2_visual, scales = "free_y") +
+  labs(title = "Distribution of updated probs",
+       x = "Acceptability",
+       y = "Density")
+
+```
+
+## Boxplot of Probabilities by Information Source and Decision Type
+
+```{r}
+library(ggpubr)
+data$F2_visual <- factor(data$F2_visual,
+                         levels = c("notGrouped", "randomGrouped", "colorGrouped"))
+
+
+# Define the comparisons
+comparisons <- list(
+  c("notGrouped", "randomGrouped"),
+  c("notGrouped", "colorGrouped"),
+  c("randomGrouped", "colorGrouped")
+)
+
+p1 <- ggplot(data, aes(x = F2_visual, y = acceptability, fill = F2_visual)) +
+  geom_boxplot() +
+  stat_compare_means(comparisons = comparisons, label = "p.signif", method = "t.test") +
+  labs(
+       x = "Visual Context",
+       y = "Acceptability") +
+  theme(legend.position = "bottom")
+
+ggsave("fig1.png", p1, width = 6, height = 4, dpi = 300)
+
+p1
+```
+
+## Table of updated probabilities by information source: mean, sd, and N.
+```{r}
+data %>%
+  group_by(F2_visual) %>%
+  summarise(
+    Mean = mean(acceptability, na.rm = TRUE),
+    SD = sd(acceptability, na.rm = TRUE),
+    N = n()
+  )
+```
+## Show how many false controls are answered correctly.
+```{r}
+false_control_itemNr_list <- c(902,904,906)
+data_filler %>% group_by(itemNr) %>% summarise(mean(acceptability))
+
+# Make a plot with mean and CIs for better visualization
+ggplot(data_filler, aes(x = F1_NPforms, y = acceptability)) +
+  stat_summary(fun.data = mean_cl_normal) +
+  geom_hline(yintercept = 50, linetype = "dashed") +
+  labs(
+    title = "Acceptability Ratings for False Controls \n (902, 904, 906)",
+    x = "Item Number",
+    y = "Acceptability"
+  )
+```
+
+
+
+# Inferential Statistics
+
+Normality test. (Passed!)
+```{r}
+# all data
+shapiro.test(data$acceptability) #Not passed.
+```
+## Regression with LMER
+```{r}
+data$F1_NPforms <- droplevels(data$F1_NP)
+#data$F2_matchness <- relevel(data$F2_matchness, ref = "notGrouped")
+lmer_model_full <- lmer(acceptability ~ F2_visual + (1|submission_id) + (1|itemNr), data = data)
+lmer_model_reduced <- lmer(acceptability ~ 1 + (1|submission_id) + (1|itemNr), data = data)
+anova(lmer_model_reduced, lmer_model_full)
+```
+```{r}
+summary(lmer_model_full)
+```
+
+Post-hoc tests
+```{r}
+emmeans(lmer_model_full, pairwise ~ F1_NPforms * F2_matchness, adjust = "bonferroni")
+```
+
+
+## Bayesian regression model:
+```{r}
+brm_full_model <- brm(acceptability ~ F1_NPforms * F2_matchness + (1|submission_id) + (1|itemNr), data = data, sample_prior = "yes", prior = c(brms::prior("normal(0, 100)")), save_pars = save_pars(all = TRUE))
+
+bayestestR::describe_posterior(brm_full_model,
+                               centrality = "mean",
+                                test = c("p_direction", "p_significance"),
+)
+# posterior predictive checks
+brms::pp_check(brm_full_model, ndraws = 50)
+```
+Fit a modell without interaction and compute the Bayes factor.
+```{r}
+brm_reduced_model <- brm(acceptability ~ F1_NPforms + F2_matchness + (1|submission_id) + (1|itemNr), data = data, sample_prior = "yes", prior = c(brms::prior("normal(0, 100)")), save_pars = save_pars(all = TRUE))
+
+```
+```{r}
+bayes_factor(brm_reduced_model, brm_full_model, silent = TRUE)
+```
+```{r}
+pairs(emmeans(brm_full_model, ~ F1_NPforms * F2_matchness), adjust = "bonferroni")
+```
+
+
