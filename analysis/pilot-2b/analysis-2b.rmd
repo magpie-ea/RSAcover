@@ -63,6 +63,9 @@ Factorise variables: id, informationSource
 #data$id <- as.factor(1:nrow(data))
 data$F1_NP <- as.factor(data$F1_NP)
 data$F2_visual <- as.factor(data$F2_visual)
+
+data %>% mutate(alternative = ifelse(itemNr < 73, "yes", "no") ) -> data
+
 ```
 
 Drop unnecessary columns and NA values. Filter out practice and filler items.
@@ -72,15 +75,16 @@ filler_itemNr_list <- c(901:924)
 
 data_filler <- data %>% select(submission_id,, 
                                acceptability, 
-                               List, itemNr, 
-                               F1_NPforms, 
-                               F2_matchness)%>%
+                               List, itemNr,
+                               F1_NP, 
+                               F2_visual)%>%
   filter(itemNr %in% filler_itemNr_list)
 
 data <- data %>% select(submission_id, 
                         acceptability, 
                         List, 
-                        itemNr, 
+                        itemNr,
+                        alternative,
                         F1_NP, 
                         F2_visual) %>% 
   filter(!itemNr %in% practice_itemNr_list & !itemNr %in% filler_itemNr_list)
@@ -101,7 +105,7 @@ data %>% group_by(List) %>% summarise(n = n()/24)
 ```{r}
 ggplot(data, aes(x = acceptability)) +
   geom_histogram(binwidth = 5, fill = CSP_colors[1]) +
-  facet_wrap( ~ F2_visual, scales = "free_y") +
+  facet_wrap(alternative ~ F2_visual, scales = "free_y") +
   labs(title = "Distribution of Acceptability Ratings",
        x = "Acceptability",
        y = "Frequency")
@@ -124,27 +128,53 @@ ggplot(data, aes(x = acceptability)) +
 
 ```{r}
 library(ggpubr)
+
+# Ensure factor order
 data$F2_visual <- factor(data$F2_visual,
                          levels = c("notGrouped", "randomGrouped", "colorGrouped"))
 
+data$condition <- paste(data$alternative, data$F2_visual, sep = "_")
 
-# Define the comparisons
-comparisons <- list(
-  c("notGrouped", "randomGrouped"),
-  c("notGrouped", "colorGrouped"),
-  c("randomGrouped", "colorGrouped")
+data$condition <- factor(data$condition,
+                         levels = c("no_notGrouped", "no_randomGrouped", "no_colorGrouped",
+                                    "yes_notGrouped", "yes_randomGrouped", "yes_colorGrouped"))
+
+sig_df <- data.frame(
+  group1 = c(
+    "no_randomGrouped",  # within 'no'
+    "no_notGrouped",     # across
+    "no_randomGrouped",  # across
+    "no_colorGrouped",   # across
+    "yes_randomGrouped"  # within 'yes'
+  ),
+  group2 = c(
+    "no_colorGrouped",        # within 'no'
+    "yes_notGrouped",         # across
+    "yes_randomGrouped",      # across
+    "yes_colorGrouped",       # across
+    "yes_colorGrouped"        # within 'yes'
+  ),
+  y.position = c(115, 120, 125, 130, 135),
+  significance = c("***", "***", "***", "***", "***")
 )
 
-p1 <- ggplot(data, aes(x = F2_visual, y = acceptability, fill = F2_visual)) +
-  geom_boxplot() +
-  stat_compare_means(comparisons = comparisons, label = "p.signif", method = "t.test") +
+# Create plot
+p1 <- ggplot(data, aes(x = condition, y = acceptability)) +
+  geom_boxplot(aes(fill = F2_visual)) +
+  stat_pvalue_manual(sig_df, label = "significance", tip.length = 0.01) +
+  #facet_wrap(~alternative) +  # 👈 facet by "alternative"
   labs(
-       x = "Visual Context",
-       y = "Acceptability") +
-  theme(legend.position = "bottom")
+    x = "Visual Context",
+    y = "Acceptability"
+  ) +
+  theme(
+  axis.text.x = element_text(angle = 30, hjust = 1)
+) + theme(legend.position = "bottom")
 
-ggsave("fig1.png", p1, width = 6, height = 4, dpi = 300)
+# Save to file
+ggsave("fig1.png", p1, width = 7, height = 5, dpi = 300)
 
+# Show plot
 p1
 ```
 
@@ -160,11 +190,11 @@ data %>%
 ```
 ## Show how many false controls are answered correctly.
 ```{r}
-false_control_itemNr_list <- c(902,904,906)
+false_control_itemNr_list <- seq(901, 924, 2)
 data_filler %>% group_by(itemNr) %>% summarise(mean(acceptability))
 
 # Make a plot with mean and CIs for better visualization
-ggplot(data_filler, aes(x = F1_NPforms, y = acceptability)) +
+data_filler %>% filter(itemNr %in% false_control_itemNr_list) %>% ggplot(aes(x = F1_NP, y = acceptability)) +
   stat_summary(fun.data = mean_cl_normal) +
   geom_hline(yintercept = 50, linetype = "dashed") +
   labs(
@@ -185,10 +215,9 @@ shapiro.test(data$acceptability) #Not passed.
 ```
 ## Regression with LMER
 ```{r}
-data$F1_NPforms <- droplevels(data$F1_NP)
-data$F2_matchness <- relevel(data$F2_matchness, ref = "random")
-lmer_model_full <- lmer(acceptability ~ F2_visual + (1|submission_id) + (1|itemNr), data = data)
-lmer_model_reduced <- lmer(acceptability ~ F1_NPforms + F2_matchness + (1|submission_id) + (1|itemNr), data = data)
+data$F1_NP <- droplevels(data$F1_NP)
+lmer_model_full <- lmer(acceptability ~ F2_visual * alternative + (1|submission_id) + (1|itemNr), data = data)
+lmer_model_reduced <- lmer(acceptability ~ F2_visual + alternative + (1|submission_id) + (1|itemNr), data = data)
 anova(lmer_model_reduced, lmer_model_full)
 ```
 ```{r}
@@ -197,7 +226,7 @@ summary(lmer_model_full)
 
 Post-hoc tests
 ```{r}
-emmeans(lmer_model_full, pairwise ~ F1_NPforms * F2_matchness, adjust = "bonferroni")
+emmeans(lmer_model_full, pairwise ~ alternative * F2_visual, adjust = "bonferroni")
 ```
 
 

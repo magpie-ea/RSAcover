@@ -55,7 +55,9 @@ scale_fill_discrete <- function(...) {
 ## Import data batch1
 
 ```{r}
-data <- read.csv("../../data/pilot-2a/results.csv")
+data_batch1 <- read.csv("../../data/pilot-2a/results_batch1.csv")
+data_batch2 <- read.csv("../../data/pilot-2a/results_batch2.csv")
+data <- rbind(data_batch1, data_batch2)
 ```
 
 Factorise variables: id, informationSource
@@ -160,7 +162,7 @@ data %>%
 ```
 ## Show how many false controls are answered correctly.
 ```{r}
-false_control_itemNr_list <- c(902,904,906)
+false_control_itemNr_list <- seq(901, 924,2)
 data_filler %>% group_by(itemNr) %>% summarise(mean(acceptability))
 
 # Make a plot with mean and CIs for better visualization
@@ -197,7 +199,7 @@ summary(lmer_model_full)
 
 Post-hoc tests
 ```{r}
-emmeans(lmer_model_full, pairwise ~ F1_NPforms * F2_matchness, adjust = "bonferroni")
+emmeans(lmer_model_full, pairwise ~ F2_visual, adjust = "bonferroni")
 ```
 
 
